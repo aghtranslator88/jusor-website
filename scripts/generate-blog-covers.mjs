@@ -145,6 +145,150 @@ function drawIconBadge(ctx, iconKey) {
       ctx.restore();
       break;
     }
+    case "Shield": {
+      ctx.beginPath();
+      ctx.moveTo(0, -s * 1.1);
+      ctx.lineTo(s * 0.95, -s * 0.7);
+      ctx.lineTo(s * 0.95, s * 0.15);
+      ctx.quadraticCurveTo(s * 0.95, s * 0.9, 0, s * 1.15);
+      ctx.quadraticCurveTo(-s * 0.95, s * 0.9, -s * 0.95, s * 0.15);
+      ctx.lineTo(-s * 0.95, -s * 0.7);
+      ctx.closePath();
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(-s * 0.4, 0);
+      ctx.lineTo(-s * 0.1, s * 0.35);
+      ctx.lineTo(s * 0.45, -s * 0.35);
+      ctx.stroke();
+      break;
+    }
+    case "Anchor": {
+      ctx.beginPath();
+      ctx.arc(0, -s * 0.75, s * 0.28, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(0, -s * 0.47);
+      ctx.lineTo(0, s * 1.0);
+      ctx.moveTo(-s * 0.85, s * 0.15);
+      ctx.lineTo(s * 0.85, s * 0.15);
+      ctx.moveTo(-s * 0.7, -s * 0.15);
+      ctx.lineTo(s * 0.7, -s * 0.15);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(-s * 0.85, s * 0.15);
+      ctx.quadraticCurveTo(-s * 0.85, s * 1.05, 0, s * 1.05);
+      ctx.moveTo(s * 0.85, s * 0.15);
+      ctx.quadraticCurveTo(s * 0.85, s * 1.05, 0, s * 1.05);
+      ctx.stroke();
+      break;
+    }
+    case "Lightbulb": {
+      ctx.beginPath();
+      ctx.arc(0, -s * 0.25, s * 0.65, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(-s * 0.3, s * 0.35);
+      ctx.lineTo(-s * 0.3, s * 0.75);
+      ctx.lineTo(s * 0.3, s * 0.75);
+      ctx.lineTo(s * 0.3, s * 0.35);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(-s * 0.22, s * 1.0);
+      ctx.lineTo(s * 0.22, s * 1.0);
+      ctx.stroke();
+      break;
+    }
+    case "Leaf": {
+      ctx.beginPath();
+      ctx.moveTo(-s * 0.9, s * 1.0);
+      ctx.quadraticCurveTo(-s * 1.1, -s * 0.6, s * 0.9, -s * 1.0);
+      ctx.quadraticCurveTo(s * 1.1, s * 0.6, -s * 0.9, s * 1.0);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(-s * 0.75, s * 0.85);
+      ctx.lineTo(s * 0.7, -s * 0.75);
+      ctx.stroke();
+      break;
+    }
+    case "Flame": {
+      ctx.beginPath();
+      ctx.moveTo(0, -s * 1.15);
+      ctx.quadraticCurveTo(s * 0.9, -s * 0.2, s * 0.4, s * 0.5);
+      ctx.quadraticCurveTo(s * 0.55, s * 0.05, 0, -s * 0.2);
+      ctx.quadraticCurveTo(s * 0.1, s * 0.35, -s * 0.05, s * 0.6);
+      ctx.quadraticCurveTo(-s * 0.7, s * 0.4, -s * 0.5, -s * 0.35);
+      ctx.quadraticCurveTo(-s * 0.3, -s * 0.7, 0, -s * 1.15);
+      ctx.closePath();
+      ctx.stroke();
+      break;
+    }
+    case "HardHat": {
+      ctx.beginPath();
+      ctx.arc(0, s * 0.05, s * 0.85, Math.PI, 0);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(-s * 1.05, s * 0.15);
+      ctx.lineTo(s * 1.05, s * 0.15);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(0, -s * 0.85);
+      ctx.lineTo(0, s * 0.05);
+      ctx.moveTo(-s * 0.5, -s * 0.05);
+      ctx.lineTo(-s * 0.5, s * 0.05);
+      ctx.moveTo(s * 0.5, -s * 0.05);
+      ctx.lineTo(s * 0.5, s * 0.05);
+      ctx.stroke();
+      break;
+    }
+    case "Cross": {
+      ctx.beginPath();
+      ctx.roundRect(-s * 0.28, -s * 0.9, s * 0.56, s * 1.8, 6);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.roundRect(-s * 0.9, -s * 0.28, s * 1.8, s * 0.56, 6);
+      ctx.fill();
+      break;
+    }
+    case "GraduationCap": {
+      ctx.beginPath();
+      ctx.moveTo(0, -s * 0.6);
+      ctx.lineTo(s * 1.05, -s * 0.1);
+      ctx.lineTo(0, s * 0.4);
+      ctx.lineTo(-s * 1.05, -s * 0.1);
+      ctx.closePath();
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(-s * 0.55, s * 0.15);
+      ctx.lineTo(-s * 0.55, s * 0.55);
+      ctx.quadraticCurveTo(-s * 0.55, s * 0.85, 0, s * 0.85);
+      ctx.quadraticCurveTo(s * 0.55, s * 0.85, s * 0.55, s * 0.55);
+      ctx.lineTo(s * 0.55, s * 0.15);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(s * 1.05, -s * 0.1);
+      ctx.lineTo(s * 1.05, s * 0.55);
+      ctx.stroke();
+      break;
+    }
+    case "Users": {
+      ctx.beginPath();
+      ctx.arc(-s * 0.35, -s * 0.45, s * 0.3, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(s * 0.4, -s * 0.35, s * 0.24, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(-s * 0.85, s * 0.85);
+      ctx.quadraticCurveTo(-s * 0.85, s * 0.05, -s * 0.35, s * 0.05);
+      ctx.quadraticCurveTo(s * 0.15, s * 0.05, s * 0.15, s * 0.7);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(s * 0.05, s * 0.85);
+      ctx.quadraticCurveTo(s * 0.05, s * 0.2, s * 0.4, s * 0.2);
+      ctx.quadraticCurveTo(s * 0.85, s * 0.2, s * 0.85, s * 0.85);
+      ctx.stroke();
+      break;
+    }
     case "Building2":
     default: {
       ctx.beginPath();
