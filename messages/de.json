@@ -1,0 +1,47 @@
+{
+  "Metadata": {
+    "title": "JUSOR — Beglaubigte Übersetzung, Lokalisierung & Dolmetschen",
+    "description": "JUSOR (جسور) ist ein international akkreditiertes Übersetzungs- und Lokalisierungsunternehmen, das beglaubigte Dokumentenübersetzung, Unternehmenslokalisierung und Dolmetscherdienste in über 60 Sprachkombinationen anbietet."
+  },
+  "Nav": {
+    "services": "Dienstleistungen",
+    "legalTranslation": "Rechtsübersetzung",
+    "interpretation": "Dolmetschen",
+    "equipment": "Geräteverleih",
+    "documents": "Dokumente & Preise",
+    "knowledge": "Wissenszentrum",
+    "company": "Unternehmen",
+    "about": "Über uns",
+    "careers": "Karriere",
+    "contact": "Kontakt",
+    "getQuote": "Angebot einholen"
+  },
+  "Home": {
+    "heroHeadline": "Beglaubigte Übersetzung und Lokalisierung mit Präzision",
+    "heroDefinition": "JUSOR (جسور) ist ein international akkreditiertes Übersetzungs- und Lokalisierungsunternehmen, das beglaubigte Dokumentenübersetzung, Unternehmenslokalisierung und Dolmetscherdienste in über 60 Sprachkombinationen anbietet. Mit ISO 17100-zertifizierten Linguisten und von Botschaften anerkannter Beglaubigung liefert JUSOR juristische, medizinische und technische Übersetzungen mit Lieferzeiten von 4 bis 72 Stunden.",
+    "ctaPrimary": "Beglaubigtes Angebot erhalten",
+    "ctaSecondary": "Mit einem Experten sprechen",
+    "servicesTitle": "Unsere Dienstleistungen",
+    "whyChooseUsTitle": "Warum JUSOR wählen",
+    "statsTitle": "JUSOR in Zahlen",
+    "languagesTitle": "Unterstützte Sprachen",
+    "workflowTitle": "So funktioniert's",
+    "faqTitle": "Häufig gestellte Fragen"
+  },
+  "Knowledge": {
+    "title": "Wissenszentrum",
+    "subtitle": "Praktische, regelmäßig aktualisierte Leitfäden zu beglaubigter Übersetzung, Beglaubigung und regulatorischer Compliance in Dubai.",
+    "readingTime": "{minutes} Min. Lesezeit",
+    "publishedOn": "Veröffentlicht am {date}",
+    "faqTitle": "Häufig gestellte Fragen",
+    "relatedTitle": "Ähnliche Artikel",
+    "backToKnowledge": "Zurück zum Wissenszentrum"
+  },
+  "Footer": {
+    "rightsReserved": "Alle Rechte vorbehalten.",
+    "address": "Abu Saif Business Center - Al-Kazim Building - Block A - M Floor - Office 40B, Abu Hail, Dubai, Vereinigte Arabische Emirate",
+    "phone": "Telefon",
+    "mobile": "Mobil",
+    "email": "E-Mail"
+  }
+}

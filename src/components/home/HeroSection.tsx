@@ -1,0 +1,35 @@
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { ArrowRight } from "lucide-react";
+
+export function HeroSection() {
+  const t = useTranslations("Home");
+
+  return (
+    <section className="relative overflow-hidden bg-gradient-to-br from-primary-600 to-primary-700 px-4 py-20 text-center md:px-8 md:py-28">
+      <div className="mx-auto max-w-3xl">
+        <h1 className="text-display-lg font-extrabold text-white">
+          {t("heroHeadline")}
+        </h1>
+        <p className="mt-6 text-body-lg text-primary-50/90" data-answer-block>
+          {t("heroDefinition")}
+        </p>
+        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Link
+            href="/quotes/submit"
+            className="inline-flex items-center gap-2 rounded-full bg-accent-500 px-6 py-3.5 text-body font-semibold text-white shadow-cta-glow transition-colors hover:bg-accent-600"
+          >
+            {t("ctaPrimary")}
+            <ArrowRight className="size-4 rtl:rotate-180" aria-hidden />
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 text-body font-semibold text-white transition-colors hover:bg-white/10"
+          >
+            {t("ctaSecondary")}
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,26 +1,175 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------------
+ * JUSOR (جسور) design tokens
+ * Source of truth: docs/spec/00-brand-design-system.md
+ * Tailwind v4 CSS-first theme — utilities like bg-primary-600, text-accent-500,
+ * font-arabic, shadow-card, animate-count-up are generated from this file.
+ * ------------------------------------------------------------------------- */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary — Trust Blue */
+  --color-primary-50: #ebf3fa;
+  --color-primary-100: #d3e4f3;
+  --color-primary-200: #a7c9e7;
+  --color-primary-300: #7baedb;
+  --color-primary-400: #4f93cf;
+  --color-primary-500: #2a72b0;
+  --color-primary-600: #0f3d6c;
+  --color-primary-700: #0c3159;
+  --color-primary-800: #092546;
+  --color-primary-900: #061933;
+
+  /* Accent — Action Orange */
+  --color-accent-50: #fdf0ea;
+  --color-accent-100: #fbdccc;
+  --color-accent-200: #f5b899;
+  --color-accent-300: #ef9366;
+  --color-accent-400: #ea7a47;
+  --color-accent-500: #e65a28;
+  --color-accent-600: #c4471c;
+  --color-accent-700: #9c3816;
+  --color-accent-800: #742910;
+  --color-accent-900: #4c1b0b;
+
+  /* Neutral — Slate scale */
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+
+  /* Semantic */
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+
+  /* Surfaces */
+  --surface-page: var(--color-slate-50);
+  --surface-card: #ffffff;
+
+  --background: var(--surface-page);
+  --foreground: var(--color-slate-900);
+}
+
+:root[data-theme="dark"] {
+  --surface-page: var(--color-slate-900);
+  --surface-card: var(--color-slate-800);
+  --background: var(--surface-page);
+  --foreground: var(--color-slate-50);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --surface-page: var(--color-slate-900);
+    --surface-card: var(--color-slate-800);
+    --background: var(--surface-page);
+    --foreground: var(--color-slate-50);
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-600: var(--color-primary-600);
+  --color-primary-700: var(--color-primary-700);
+  --color-primary-800: var(--color-primary-800);
+  --color-primary-900: var(--color-primary-900);
+  --color-primary: var(--color-primary-600);
+
+  --color-accent-50: var(--color-accent-50);
+  --color-accent-100: var(--color-accent-100);
+  --color-accent-200: var(--color-accent-200);
+  --color-accent-300: var(--color-accent-300);
+  --color-accent-400: var(--color-accent-400);
+  --color-accent-500: var(--color-accent-500);
+  --color-accent-600: var(--color-accent-600);
+  --color-accent-700: var(--color-accent-700);
+  --color-accent-800: var(--color-accent-800);
+  --color-accent-900: var(--color-accent-900);
+  --color-accent: var(--color-accent-500);
+
+  --color-slate-50: var(--color-slate-50);
+  --color-slate-100: var(--color-slate-100);
+  --color-slate-200: var(--color-slate-200);
+  --color-slate-300: var(--color-slate-300);
+  --color-slate-400: var(--color-slate-400);
+  --color-slate-500: var(--color-slate-500);
+  --color-slate-600: var(--color-slate-600);
+  --color-slate-700: var(--color-slate-700);
+  --color-slate-800: var(--color-slate-800);
+  --color-slate-900: var(--color-slate-900);
+
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-danger: var(--color-danger);
+
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+  --font-arabic: var(--font-cairo), var(--font-tajawal), system-ui, sans-serif;
+
+  /* Fluid type scale — clamp(mobile-390px, fluid, desktop-1440px) */
+  --text-display-xl: clamp(2rem, 1.3rem + 3vw, 4rem);
+  --text-display-xl--line-height: 1.1;
+  --text-display-lg: clamp(1.75rem, 1.2rem + 2.4vw, 3rem);
+  --text-display-lg--line-height: 1.15;
+  --text-h2: clamp(1.5rem, 1.2rem + 1.3vw, 2.25rem);
+  --text-h2--line-height: 1.25;
+  --text-h3: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-h3--line-height: 1.3;
+  --text-body-lg: clamp(1.0625rem, 1rem + 0.3vw, 1.125rem);
+  --text-body-lg--line-height: 1.65;
+  --text-body: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+  --text-body--line-height: 1.65;
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.5;
+
+  --radius-xl: 0.875rem;
+  --radius-2xl: 1.25rem;
+
+  --shadow-card: 0 1px 2px 0 rgb(15 23 42 / 0.04), 0 1px 6px -1px rgb(15 23 42 / 0.06);
+  --shadow-card-hover: 0 8px 24px -4px rgb(15 61 108 / 0.16);
+  --shadow-cta-glow: 0 4px 14px 0 rgb(230 90 40 / 0.35);
+
+  --animate-count-up: count-up 0.4s ease-out;
+  --animate-ticker-scroll: ticker-scroll 32s linear infinite;
+
+  @keyframes count-up {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes ticker-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
+
+/* RTL-safe: no physical left/right rules belong here — use logical properties
+ * (ps-*, pe-*, start-*, end-*) in components instead. */

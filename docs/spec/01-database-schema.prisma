@@ -1,0 +1,591 @@
+// ============================================================================
+// JUSOR (جسور) — Canonical Prisma Schema
+// Postgres 15+. This file is the single source of truth referenced by every
+// page/feature spec in /docs/spec. Multilingual text uses Json fields keyed
+// by locale (`{ "en": "...", "ar": "...", "fr": "...", "de": "...", "es": "...", "it": "..." }`)
+// rather than per-locale tables, to keep joins cheap on high-traffic catalog routes.
+// ============================================================================
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearchPostgres", "views"]
+}
+
+datasource db {
+  url      = env("DATABASE_URL")
+  provider = "postgresql"
+}
+
+// ---------------------------------------------------------------------------
+// ENUMS
+// ---------------------------------------------------------------------------
+
+enum Role {
+  ADMIN
+  PROJECT_MANAGER
+  TRANSLATOR
+  REVIEWER
+  CLIENT
+}
+
+enum Locale {
+  en
+  ar
+  fr
+  de
+  es
+  it
+}
+
+enum QuoteStatus {
+  PENDING
+  REVIEWING
+  APPROVED
+  IN_PROGRESS
+  QA_REVIEW
+  COMPLETED
+  DELIVERED
+  CANCELLED
+  EXPIRED
+}
+
+enum OrderStatus {
+  AWAITING_PAYMENT
+  PAID
+  IN_PRODUCTION
+  DELIVERED
+  REFUNDED
+  DISPUTED
+  CANCELLED
+}
+
+enum PaymentProvider {
+  STRIPE
+  TAP
+  BANK_TRANSFER
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCEEDED
+  FAILED
+  REFUNDED
+  PARTIALLY_REFUNDED
+}
+
+enum ServiceTier {
+  STANDARD
+  PROFESSIONAL
+  CERTIFIED
+  SWORN_LEGAL
+}
+
+enum TurnaroundSpeed {
+  ECONOMY_72H
+  STANDARD_24H
+  EXPRESS_12H
+  URGENT_4H
+}
+
+enum DocumentCategory {
+  CIVIL_REGISTRY   // birth/marriage/death certs
+  IDENTITY         // passport, national ID
+  ACADEMIC         // diplomas, transcripts
+  COMMERCIAL       // commercial register, tax card, financial statements
+  LEGAL            // contracts, power of attorney, court rulings
+  MEDICAL          // medical reports, prescriptions
+  IMMIGRATION      // visa forms, sponsorship letters
+}
+
+enum AuthorityType {
+  EMBASSY
+  MINISTRY
+  COURT
+  UNIVERSITY
+  IMMIGRATION_OFFICE
+  NOTARY
+}
+
+enum InterpretationMode {
+  SIMULTANEOUS
+  CONSECUTIVE
+  COURT
+  REMOTE_VIDEO
+  WHISPERED
+}
+
+enum EquipmentCategory {
+  BOOTH
+  AUDIO_SYSTEM
+  RECEIVER
+  HEADSET
+  MICROPHONE
+  TRANSMITTER
+}
+
+enum BookingStatus {
+  REQUESTED
+  CONFIRMED
+  DISPATCHED
+  RETURNED
+  CANCELLED
+}
+
+// ---------------------------------------------------------------------------
+// IDENTITY & ACCESS
+// ---------------------------------------------------------------------------
+
+model User {
+  id                String        @id @default(cuid())
+  email             String        @unique
+  emailVerifiedAt   DateTime?
+  phone             String?
+  passwordHash      String?
+  role              Role          @default(CLIENT)
+  fullName          String
+  companyName       String?
+  preferredLocale   Locale        @default(en)
+  avatarUrl         String?
+  isActive          Boolean       @default(true)
+
+  // Relations
+  quotes            TranslationQuote[]   @relation("ClientQuotes")
+  managedQuotes     TranslationQuote[]   @relation("ProjectManagerQuotes")
+  translatorTasks   QuoteItem[]          @relation("AssignedTranslator")
+  orders            Order[]
+  bookings          EquipmentBooking[]
+  interpretationReqs InterpretationRequest[]
+  blogPosts         BlogPost[]           @relation("Author")
+  comments          DesignComment[]
+
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  @@index([role])
+  @@map("users")
+}
+
+// ---------------------------------------------------------------------------
+// SERVICE CATALOG
+// ---------------------------------------------------------------------------
+
+model ServiceCategory {
+  id          String    @id @default(cuid())
+  slug        String    @unique // e.g. "legal-translation", "localization"
+  name        Json      // { en, ar, fr, de, es, it }
+  description Json
+  iconKey     String    // Lucide icon name
+  sortOrder   Int       @default(0)
+  services    Service[]
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("service_categories")
+}
+
+model Service {
+  id                String          @id @default(cuid())
+  slug              String          @unique // e.g. "website-localization", "medical-translation"
+  categoryId        String
+  category          ServiceCategory @relation(fields: [categoryId], references: [id])
+  name              Json
+  shortDescription  Json
+  definitionBlock   Json            // 40-60 word GEO definition, per locale
+  heroImageUrl      String?
+  basePricePerWord  Decimal         @db.Decimal(10, 4)
+  minCharge         Decimal         @db.Decimal(10, 2)
+  supportsHybridAI  Boolean         @default(false) // AI + human review workflow flag
+  faqs              FAQ[]
+  documentTypes     DocumentType[]
+  isPublished       Boolean         @default(true)
+
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+
+  @@index([categoryId])
+  @@map("services")
+}
+
+// ---------------------------------------------------------------------------
+// DOCUMENT CATALOG (E-Commerce Engine)
+// ---------------------------------------------------------------------------
+
+model DocumentType {
+  id                 String            @id @default(cuid())
+  slug               String            @unique // e.g. "birth-certificate"
+  serviceId          String
+  service            Service           @relation(fields: [serviceId], references: [id])
+  category           DocumentCategory
+  name               Json
+  description        Json
+  definitionBlock    Json
+  basePrice          Decimal           @db.Decimal(10, 2)
+  currency           String            @default("USD")
+  isCertifiedDefault Boolean           @default(true)
+  avgTurnaroundHours Int               @default(24)
+  requiredUploads    Json              // [{ key, label: Json, required: bool, accept: string[] }]
+  thumbnailUrl       String?
+  isPublished        Boolean           @default(true)
+
+  embassyRequirements EmbassyRequirement[]
+  pricingTiers        DocumentPricingTier[]
+  quoteItems          QuoteItem[]
+
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+
+  @@index([category])
+  @@index([serviceId])
+  @@map("document_types")
+}
+
+model DocumentPricingTier {
+  id             String          @id @default(cuid())
+  documentTypeId String
+  documentType   DocumentType    @relation(fields: [documentTypeId], references: [id])
+  tier           ServiceTier
+  turnaround     TurnaroundSpeed
+  price          Decimal         @db.Decimal(10, 2)
+  currency       String          @default("USD")
+
+  @@unique([documentTypeId, tier, turnaround])
+  @@map("document_pricing_tiers")
+}
+
+// ---------------------------------------------------------------------------
+// AUTHORITIES & EMBASSY REQUIREMENTS (Legal Translation Hub)
+// ---------------------------------------------------------------------------
+
+model Authority {
+  id                 String        @id @default(cuid())
+  slug               String        @unique // e.g. "uk-home-office", "germany-embassy"
+  type               AuthorityType
+  countryCode        String        // ISO 3166-1 alpha-2, e.g. "GB", "DE"
+  name               Json
+  description        Json
+  definitionBlock    Json
+  logoUrl            String?
+  addressLine        Json?
+  geoLat             Float?
+  geoLng             Float?
+  officialWebsite    String?
+
+  requirements       EmbassyRequirement[]
+
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+
+  @@index([type, countryCode])
+  @@map("authorities")
+}
+
+model EmbassyRequirement {
+  id                 String        @id @default(cuid())
+  authorityId        String
+  authority          Authority     @relation(fields: [authorityId], references: [id])
+  documentTypeId     String
+  documentType       DocumentType  @relation(fields: [documentTypeId], references: [id])
+
+  requiresApostille  Boolean       @default(false)
+  requiresNotarization Boolean     @default(false)
+  requiresSwornTranslator Boolean  @default(false)
+  turnaroundHours    Int
+  specificInstructions Json        // rich text per locale
+  checklist          Json          // [{ label: Json, order: int }]
+
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+
+  @@unique([authorityId, documentTypeId])
+  @@map("embassy_requirements")
+}
+
+// ---------------------------------------------------------------------------
+// LANGUAGE PAIRS (Programmatic SEO Matrix)
+// ---------------------------------------------------------------------------
+
+model Language {
+  id            String   @id @default(cuid())
+  code          String   @unique // ISO 639-1, e.g. "ar", "en"
+  name          Json
+  nativeName    String
+  isRtl         Boolean  @default(false)
+  flagIconUrl   String?
+
+  pairsAsSource LanguagePair[] @relation("SourceLanguage")
+  pairsAsTarget LanguagePair[] @relation("TargetLanguage")
+
+  @@map("languages")
+}
+
+model LanguagePair {
+  id                String    @id @default(cuid())
+  slug              String    @unique // "arabic-to-english"
+  sourceLanguageId  String
+  sourceLanguage    Language  @relation("SourceLanguage", fields: [sourceLanguageId], references: [id])
+  targetLanguageId  String
+  targetLanguage    Language  @relation("TargetLanguage", fields: [targetLanguageId], references: [id])
+
+  definitionBlock   Json
+  demandTier        Int       @default(1) // 1 = high volume (drives internal linking priority)
+  perWordRateModifier Decimal @db.Decimal(4, 2) @default(1.00) // multiplier on service base rate
+  translatorPoolSize Int      @default(0)
+  isPublished       Boolean   @default(true)
+
+  quoteItems        QuoteItem[]
+
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  @@unique([sourceLanguageId, targetLanguageId])
+  @@index([demandTier])
+  @@map("language_pairs")
+}
+
+// ---------------------------------------------------------------------------
+// QUOTES & ORDERS
+// ---------------------------------------------------------------------------
+
+model TranslationQuote {
+  id                 String        @id @default(cuid())
+  reference          String        @unique @default(cuid()) // human-facing e.g. "JSR-2026-00042"
+  clientId           String?
+  client             User?         @relation("ClientQuotes", fields: [clientId], references: [id])
+  guestEmail         String?       // allows quote submission pre-signup
+  guestName          String?
+  projectManagerId   String?
+  projectManager     User?         @relation("ProjectManagerQuotes", fields: [projectManagerId], references: [id])
+
+  status             QuoteStatus   @default(PENDING)
+  serviceTier        ServiceTier   @default(STANDARD)
+  turnaround         TurnaroundSpeed @default(STANDARD_24H)
+  totalSourceWords    Int          @default(0)
+  subtotal           Decimal       @db.Decimal(10, 2) @default(0)
+  rushFee            Decimal       @db.Decimal(10, 2) @default(0)
+  certificationFee   Decimal       @db.Decimal(10, 2) @default(0)
+  discountAmount     Decimal       @db.Decimal(10, 2) @default(0)
+  total              Decimal       @db.Decimal(10, 2) @default(0)
+  currency           String        @default("USD")
+  notes              String?
+
+  items              QuoteItem[]
+  order              Order?
+
+  expiresAt          DateTime?
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+
+  @@index([status])
+  @@index([clientId])
+  @@map("translation_quotes")
+}
+
+model QuoteItem {
+  id                 String        @id @default(cuid())
+  quoteId            String
+  quote              TranslationQuote @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+
+  documentTypeId     String?
+  documentType       DocumentType? @relation(fields: [documentTypeId], references: [id])
+  languagePairId     String
+  languagePair       LanguagePair  @relation(fields: [languagePairId], references: [id])
+
+  sourceFileUrl      String        // S3/R2 object key
+  sourceFileName     String
+  sourceFileSizeBytes Int
+  sourceWordCount    Int
+  targetFileUrl      String?
+  status             QuoteStatus   @default(PENDING)
+
+  assignedTranslatorId String?
+  assignedTranslator User?         @relation("AssignedTranslator", fields: [assignedTranslatorId], references: [id])
+
+  lineTotal          Decimal       @db.Decimal(10, 2)
+
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+
+  @@index([quoteId])
+  @@index([assignedTranslatorId])
+  @@map("quote_items")
+}
+
+model Order {
+  id             String        @id @default(cuid())
+  orderNumber    String        @unique @default(cuid())
+  quoteId        String        @unique
+  quote          TranslationQuote @relation(fields: [quoteId], references: [id])
+  clientId       String
+  client         User          @relation(fields: [clientId], references: [id])
+
+  status         OrderStatus   @default(AWAITING_PAYMENT)
+  amount         Decimal       @db.Decimal(10, 2)
+  currency       String        @default("USD")
+
+  payments       Payment[]
+
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  @@index([status])
+  @@map("orders")
+}
+
+model Payment {
+  id                String          @id @default(cuid())
+  orderId           String
+  order             Order           @relation(fields: [orderId], references: [id])
+  provider          PaymentProvider
+  providerTxnId     String          @unique // Stripe PaymentIntent ID / Tap Charge ID
+  status            PaymentStatus   @default(PENDING)
+  amount            Decimal         @db.Decimal(10, 2)
+  currency          String
+  rawPayload        Json?           // webhook payload snapshot for audit
+
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+
+  @@index([providerTxnId])
+  @@index([orderId])
+  @@map("payments")
+}
+
+// ---------------------------------------------------------------------------
+// INTERPRETATION & EQUIPMENT RENTAL
+// ---------------------------------------------------------------------------
+
+model InterpretationRequest {
+  id             String              @id @default(cuid())
+  clientId       String?
+  client         User?               @relation(fields: [clientId], references: [id])
+  guestEmail     String?
+  guestName      String?
+
+  mode           InterpretationMode
+  languagePairs  String[]            // array of LanguagePair slugs (multi-language events)
+  eventDate      DateTime
+  durationHours  Float
+  venueCity      String?
+  isRemote       Boolean             @default(false)
+  attendeeCount  Int?
+  notes          String?
+  status         BookingStatus       @default(REQUESTED)
+
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+
+  @@index([status])
+  @@map("interpretation_requests")
+}
+
+model EquipmentItem {
+  id              String            @id @default(cuid())
+  slug            String            @unique
+  category        EquipmentCategory
+  name            Json
+  description     Json
+  specifications  Json              // [{ label: Json, value: Json }]
+  dailyRate       Decimal           @db.Decimal(10, 2)
+  imageUrl        String?
+  stockQuantity   Int               @default(0)
+  isPublished     Boolean           @default(true)
+
+  bookingLines    EquipmentBookingLine[]
+
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  @@index([category])
+  @@map("equipment_items")
+}
+
+model EquipmentBooking {
+  id           String                 @id @default(cuid())
+  clientId     String?
+  client       User?                  @relation(fields: [clientId], references: [id])
+  guestEmail   String?
+  guestName    String?
+
+  startDate    DateTime
+  endDate      DateTime
+  deliveryCity String?
+  status       BookingStatus          @default(REQUESTED)
+  lines        EquipmentBookingLine[]
+
+  createdAt    DateTime               @default(now())
+  updatedAt    DateTime               @updatedAt
+
+  @@map("equipment_bookings")
+}
+
+model EquipmentBookingLine {
+  id                 String            @id @default(cuid())
+  bookingId          String
+  booking            EquipmentBooking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  equipmentItemId    String
+  equipmentItem      EquipmentItem     @relation(fields: [equipmentItemId], references: [id])
+  quantity           Int               @default(1)
+  lineTotal          Decimal           @db.Decimal(10, 2)
+
+  @@map("equipment_booking_lines")
+}
+
+// ---------------------------------------------------------------------------
+// CONTENT: BLOG & FAQ
+// ---------------------------------------------------------------------------
+
+model BlogPost {
+  id              String    @id @default(cuid())
+  slug            String    @unique
+  authorId        String
+  author          User      @relation("Author", fields: [authorId], references: [id])
+  category        String    // "immigration" | "visas" | "legalizations" | "ai-translation"
+  title           Json
+  excerpt         Json
+  definitionBlock Json      // GEO answer block, per locale
+  bodyMarkdown    Json      // per-locale markdown body
+  coverImageUrl   String?
+  readingTimeMins Int       @default(5)
+  eeatCredentials Json?     // { certifications: [], yearsExperience, reviewedBy }
+  isPublished     Boolean   @default(false)
+  publishedAt     DateTime?
+
+  faqs            FAQ[]
+
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([category])
+  @@index([isPublished, publishedAt])
+  @@map("blog_posts")
+}
+
+model FAQ {
+  id          String     @id @default(cuid())
+  question    Json
+  answer      Json
+  sortOrder   Int        @default(0)
+
+  serviceId   String?
+  service     Service?   @relation(fields: [serviceId], references: [id])
+  blogPostId  String?
+  blogPost    BlogPost?  @relation(fields: [blogPostId], references: [id])
+
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@map("faqs")
+}
+
+model DesignComment {
+  id        String   @id @default(cuid())
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id])
+  targetType String  // "blog_post" | "document_type" | ...
+  targetId  String
+  body      String
+  createdAt DateTime @default(now())
+
+  @@map("design_comments")
+}

@@ -1,0 +1,47 @@
+{
+  "Metadata": {
+    "title": "JUSOR — Traduction certifiée, localisation et interprétation",
+    "description": "JUSOR (جسور) est une société de traduction et de localisation accréditée à l'international, proposant la traduction certifiée de documents, la localisation d'entreprise et des services d'interprétation dans plus de 60 combinaisons linguistiques."
+  },
+  "Nav": {
+    "services": "Services",
+    "legalTranslation": "Traduction juridique",
+    "interpretation": "Interprétation",
+    "equipment": "Location de matériel",
+    "documents": "Documents et tarifs",
+    "knowledge": "Centre de ressources",
+    "company": "Entreprise",
+    "about": "À propos",
+    "careers": "Carrières",
+    "contact": "Contact",
+    "getQuote": "Obtenir un devis"
+  },
+  "Home": {
+    "heroHeadline": "Traduction certifiée et localisation, livrées avec précision",
+    "heroDefinition": "JUSOR (جسور) est une société de traduction et de localisation accréditée à l'international, proposant la traduction certifiée de documents, la localisation d'entreprise et des services d'interprétation dans plus de 60 combinaisons linguistiques. Avec des linguistes certifiés ISO 17100 et une certification reconnue par les ambassades, JUSOR livre des traductions juridiques, médicales et techniques avec des délais de 4 à 72 heures.",
+    "ctaPrimary": "Obtenir un devis certifié",
+    "ctaSecondary": "Parler à un expert",
+    "servicesTitle": "Nos services",
+    "whyChooseUsTitle": "Pourquoi choisir JUSOR",
+    "statsTitle": "JUSOR en chiffres",
+    "languagesTitle": "Langues prises en charge",
+    "workflowTitle": "Comment ça marche",
+    "faqTitle": "Questions fréquentes"
+  },
+  "Knowledge": {
+    "title": "Centre de ressources",
+    "subtitle": "Guides pratiques et régulièrement mis à jour sur la traduction certifiée, la légalisation et la conformité réglementaire à Dubaï.",
+    "readingTime": "{minutes} min de lecture",
+    "publishedOn": "Publié le {date}",
+    "faqTitle": "Questions fréquentes",
+    "relatedTitle": "Articles similaires",
+    "backToKnowledge": "Retour au centre de ressources"
+  },
+  "Footer": {
+    "rightsReserved": "Tous droits réservés.",
+    "address": "Abu Saif Business Center - Al-Kazim Building - Block A - M Floor - Office 40B, Abu Hail, Dubaï, Émirats Arabes Unis",
+    "phone": "Téléphone",
+    "mobile": "Mobile",
+    "email": "E-mail"
+  }
+}

@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Generated brand asset intermediates
+.tmp-brand/
+
+# Local Claude Code tool-permission settings (personal, not shared config)
+.claude/settings.local.json

@@ -1,0 +1,47 @@
+{
+  "Metadata": {
+    "title": "JUSOR — Certified Translation, Localization & Interpretation",
+    "description": "JUSOR (جسور) is an internationally accredited translation and localization company providing certified document translation, business localization, and interpretation services across 60+ language pairs."
+  },
+  "Nav": {
+    "services": "Services",
+    "legalTranslation": "Legal Translation",
+    "interpretation": "Interpretation",
+    "equipment": "Equipment Rental",
+    "documents": "Documents & Pricing",
+    "knowledge": "Knowledge Base",
+    "company": "Company",
+    "about": "About Us",
+    "careers": "Careers",
+    "contact": "Contact",
+    "getQuote": "Get a Quote"
+  },
+  "Home": {
+    "heroHeadline": "Certified Translation & Localization, Delivered With Precision",
+    "heroDefinition": "JUSOR (جسور) is an internationally accredited translation and localization company providing certified document translation, business localization, and interpretation services across 60+ language pairs. Backed by ISO 17100-certified linguists and embassy-recognized certification, JUSOR delivers legal, medical, and technical translations with turnaround options from 4 hours to 72 hours, serving individuals, enterprises, and government institutions worldwide.",
+    "ctaPrimary": "Get Certified Quote",
+    "ctaSecondary": "Talk to an Expert",
+    "servicesTitle": "Our Services",
+    "whyChooseUsTitle": "Why Choose JUSOR",
+    "statsTitle": "JUSOR in Numbers",
+    "languagesTitle": "Supported Languages",
+    "workflowTitle": "How It Works",
+    "faqTitle": "Frequently Asked Questions"
+  },
+  "Knowledge": {
+    "title": "Knowledge Base",
+    "subtitle": "Practical, regularly updated guides on certified translation, attestation, and regulatory compliance in Dubai.",
+    "readingTime": "{minutes} min read",
+    "publishedOn": "Published {date}",
+    "faqTitle": "Frequently Asked Questions",
+    "relatedTitle": "Related Articles",
+    "backToKnowledge": "Back to Knowledge Base"
+  },
+  "Footer": {
+    "rightsReserved": "All rights reserved.",
+    "address": "Abu Saif Business Center - Al-Kazim Building - Block A - M Floor - Office 40B, Abu Hail, Dubai, United Arab Emirates",
+    "phone": "Phone",
+    "mobile": "Mobile",
+    "email": "Email"
+  }
+}
