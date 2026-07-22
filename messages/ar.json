@@ -37,6 +37,27 @@
     "relatedTitle": "مقالات ذات صلة",
     "backToKnowledge": "العودة إلى مركز المعرفة"
   },
+  "LegalTranslation": {
+    "hubTitle": "مركز الترجمة القانونية المعتمدة",
+    "hubSubtitle": "ترجمة معتمدة ومعترف بها لدى السفارات والجهات الحكومية للمستندات المدنية والأكاديمية والتجارية والقانونية في دبي.",
+    "embassiesTitle": "السفارات ومراكز التأشيرات",
+    "authoritiesTitle": "الجهات الحكومية والمحاكم",
+    "documentsTitle": "أنواع المستندات",
+    "languagePairsTitle": "أزواج اللغات الأكثر طلباً",
+    "requirementsTitle": "متطلبات المستندات",
+    "requiresApostille": "يتطلب تصديق أبوستيل",
+    "requiresNotarization": "يتطلب توثيق كاتب العدل",
+    "requiresSworn": "يتطلب مترجماً محلّفاً",
+    "turnaround": "التسليم خلال {hours} ساعة",
+    "checklistTitle": "قائمة المتطلبات",
+    "applicableAuthorities": "مقبولة لدى",
+    "getQuote": "احصل على عرض سعر فوري",
+    "fromPrice": "من {price} دولار",
+    "relatedReading": "دليل ذو صلة",
+    "backToHub": "العودة إلى مركز الترجمة القانونية",
+    "translatorPool": "أكثر من {count} مترجم موثوق",
+    "pairsFor": "ترجمة معتمدة لـ"
+  },
   "Footer": {
     "rightsReserved": "جميع الحقوق محفوظة.",
     "address": "مركز أبو سيف للأعمال - مبنى الكاظمي - بلوك A - الطابق M - مكتب 40B، أبو هيل، دبي، الإمارات العربية المتحدة",

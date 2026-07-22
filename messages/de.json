@@ -37,6 +37,27 @@
     "relatedTitle": "Ähnliche Artikel",
     "backToKnowledge": "Zurück zum Wissenszentrum"
   },
+  "LegalTranslation": {
+    "hubTitle": "Zentrum für beglaubigte Rechtsübersetzung",
+    "hubSubtitle": "Beglaubigte, von Botschaften und Behörden anerkannte Übersetzung für zivile, akademische, geschäftliche und rechtliche Dokumente in Dubai.",
+    "embassiesTitle": "Botschaften & Visazentren",
+    "authoritiesTitle": "Behörden & Gerichte",
+    "documentsTitle": "Dokumententypen",
+    "languagePairsTitle": "Beliebte Sprachkombinationen",
+    "requirementsTitle": "Dokumentenanforderungen",
+    "requiresApostille": "Apostille erforderlich",
+    "requiresNotarization": "Notarisierung erforderlich",
+    "requiresSworn": "Vereidigter Übersetzer erforderlich",
+    "turnaround": "{hours} Std. Bearbeitungszeit",
+    "checklistTitle": "Checkliste",
+    "applicableAuthorities": "Akzeptiert von",
+    "getQuote": "Sofortiges Angebot",
+    "fromPrice": "Ab {price} $",
+    "relatedReading": "Verwandter Leitfaden",
+    "backToHub": "Zurück zum Rechtsübersetzungszentrum",
+    "translatorPool": "Über {count} geprüfte Linguisten",
+    "pairsFor": "Beglaubigte Übersetzung für"
+  },
   "Footer": {
     "rightsReserved": "Alle Rechte vorbehalten.",
     "address": "Abu Saif Business Center - Al-Kazim Building - Block A - M Floor - Office 40B, Abu Hail, Dubai, Vereinigte Arabische Emirate",

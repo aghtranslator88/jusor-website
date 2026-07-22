@@ -37,6 +37,27 @@
     "relatedTitle": "Artículos relacionados",
     "backToKnowledge": "Volver al centro de conocimiento"
   },
+  "LegalTranslation": {
+    "hubTitle": "Centro de traducción jurídica certificada",
+    "hubSubtitle": "Traducción certificada reconocida por embajadas y autoridades gubernamentales para documentos civiles, académicos, comerciales y legales en Dubái.",
+    "embassiesTitle": "Embajadas y centros de visado",
+    "authoritiesTitle": "Autoridades gubernamentales y tribunales",
+    "documentsTitle": "Tipos de documentos",
+    "languagePairsTitle": "Combinaciones lingüísticas populares",
+    "requirementsTitle": "Requisitos del documento",
+    "requiresApostille": "Requiere apostilla",
+    "requiresNotarization": "Requiere notarización",
+    "requiresSworn": "Requiere traductor jurado",
+    "turnaround": "Entrega en {hours}h",
+    "checklistTitle": "Lista de verificación",
+    "applicableAuthorities": "Aceptado por",
+    "getQuote": "Presupuesto instantáneo",
+    "fromPrice": "Desde ${price}",
+    "relatedReading": "Guía relacionada",
+    "backToHub": "Volver al centro de traducción jurídica",
+    "translatorPool": "Más de {count} lingüistas verificados",
+    "pairsFor": "Traducción certificada para"
+  },
   "Footer": {
     "rightsReserved": "Todos los derechos reservados.",
     "address": "Abu Saif Business Center - Al-Kazim Building - Block A - M Floor - Office 40B, Abu Hail, Dubái, Emiratos Árabes Unidos",
