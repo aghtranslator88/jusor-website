@@ -503,6 +503,16 @@ export const languagePairs: LanguagePair[] = [
   },
 ];
 
+export const documentCategoryLabels: Record<DocumentCategory, LocalizedText> = {
+  CIVIL_REGISTRY: { en: "Civil Registry", ar: "السجل المدني" },
+  IDENTITY: { en: "Identity", ar: "الهوية" },
+  ACADEMIC: { en: "Academic", ar: "أكاديمي" },
+  COMMERCIAL: { en: "Commercial", ar: "تجاري" },
+  LEGAL: { en: "Legal", ar: "قانوني" },
+  MEDICAL: { en: "Medical", ar: "طبي" },
+  IMMIGRATION: { en: "Immigration", ar: "الهجرة" },
+};
+
 export function getAuthorityBySlug(slug: string) {
   return authorities.find((a) => a.slug === slug);
 }
