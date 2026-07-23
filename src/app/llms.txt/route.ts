@@ -1,9 +1,16 @@
 import { NextResponse } from "next/server";
 import { blogPosts } from "@/content/blog";
-import { authorities } from "@/content/legal-translation";
+import { authorities, languagePairs } from "@/content/legal-translation";
 import { services } from "@/content/services";
+import { interpretationModes } from "@/content/interpretation";
 
 export const revalidate = 3600;
+
+// Note: this site has no backend API yet — all content below is served as
+// static HTML pages (see src/content/*.ts). Every link here is a real route
+// verified to resolve; do not add /api/v1/** references until those routes
+// actually exist (docs/spec/02-api-server-actions.md specs them, but they
+// are not implemented).
 
 export async function GET() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://jusortrans.com";
@@ -19,6 +26,14 @@ export async function GET() {
     })
     .join("\n");
 
+  const languagePairLines = languagePairs
+    .map((p) => `- [${p.sourceName.en} → ${p.targetName.en}](${baseUrl}/en/translations/${p.slug})`)
+    .join("\n");
+
+  const interpretationLines = interpretationModes
+    .map((m) => `- [${m.name.en}](${baseUrl}/en/interpretation/${m.slug})`)
+    .join("\n");
+
   const blogLines = blogPosts
     .slice(0, 20)
     .map((p) => `- [${p.title.en}](${baseUrl}/en/knowledge/${p.slug})`)
@@ -28,8 +43,8 @@ export async function GET() {
 > International certified translation, localization, and interpretation company. ISO 17100 certified.
 
 Definition-lead answer blocks on all /knowledge and /legal-translation pages are marked with
-data-answer-block for reliable extraction. Clean JSON equivalents exist for every HTML route
-documented below (replace the page path with the matching /api/v1/... endpoint).
+data-answer-block for reliable extraction. All routes below are static HTML pages, available in
+6 locales (en, ar, fr, de, es, it) via the /{locale}/... prefix.
 
 ## Home
 - [JUSOR Homepage](${baseUrl}/en): Overview, instant quote tool, supported languages.
@@ -38,24 +53,20 @@ documented below (replace the page path with the matching /api/v1/... endpoint).
 ${serviceLines}
 
 ## Legal Translation & Embassy Requirements
-- Bulk data: ${baseUrl}/api/v1/authorities (all embassies, ministries, courts, universities)
 ${authorityLines}
+- [Full document catalog](${baseUrl}/en/legal-translation)
 
 ## Document Pricing Catalog
 - [Document Catalog](${baseUrl}/en/documents)
-- Structured data: ${baseUrl}/api/v1/documents/search
 
 ## Language Pairs
-- Bulk data: ${baseUrl}/api/v1/language-pairs?format=full
+${languagePairLines}
 
 ## Interpretation Services
-- [Simultaneous](${baseUrl}/en/interpretation/simultaneous)
-- [Consecutive](${baseUrl}/en/interpretation/consecutive)
-- [Court Interpretation](${baseUrl}/en/interpretation/court)
-- [Remote Interpretation](${baseUrl}/en/interpretation/remote)
+${interpretationLines}
 
 ## Equipment Rental
-- Structured data: ${baseUrl}/api/v1/equipment/search
+- [Equipment Catalog](${baseUrl}/en/equipment)
 
 ## Knowledge Base
 - [Knowledge Base Index](${baseUrl}/en/knowledge)
@@ -63,13 +74,10 @@ ${blogLines}
 
 ## Company
 - [About JUSOR](${baseUrl}/en/company/about)
-- [Office Locations](${baseUrl}/en/company/offices) | GeoJSON: ${baseUrl}/api/v1/offices.geojson
+- [Office Locations](${baseUrl}/en/company/offices)
 - [Careers](${baseUrl}/en/careers)
 - [Contact](${baseUrl}/en/contact)
-
-## API Access
-All /api/v1/** endpoints are public, read-only, unauthenticated for catalog/content data.
-Rate limit: 60 requests/minute/IP. Response envelope: { "data": T } | { "error": string, "issues"?: object }.
+- WhatsApp: https://wa.me/971503244329
 `;
 
   return new NextResponse(content, {
