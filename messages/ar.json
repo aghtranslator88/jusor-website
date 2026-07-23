@@ -122,6 +122,20 @@
     "faqTitle": "الأسئلة الشائعة",
     "relatedServicesTitle": "خدمات ذات صلة"
   },
+  "Equipment": {
+    "hubTitle": "تأجير المعدات",
+    "hubSubtitle": "كابينات الترجمة وأنظمة الصوت وأجهزة الاستقبال وسماعات الرأس والميكروفونات — مع تركيب فني في دبي.",
+    "categoryFacet": "الفئة",
+    "perDay": "{price} دولار/يوم",
+    "specsTitle": "المواصفات",
+    "stockAvailable": "{count} وحدة متوفرة",
+    "formTitle": "طلب هذه المعدات",
+    "formQuantity": "الكمية",
+    "formStartDate": "تاريخ البدء",
+    "formEndDate": "تاريخ الانتهاء",
+    "formDeliveryCity": "مدينة التوصيل",
+    "viewDetails": "عرض التفاصيل"
+  },
   "Footer": {
     "rightsReserved": "جميع الحقوق محفوظة.",
     "address": "مركز أبو سيف للأعمال - مبنى الكاظمي - بلوك A - الطابق M - مكتب 40B، أبو هيل، دبي، الإمارات العربية المتحدة",

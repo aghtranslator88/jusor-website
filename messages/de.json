@@ -122,6 +122,20 @@
     "faqTitle": "Häufig gestellte Fragen",
     "relatedServicesTitle": "Verwandte Dienstleistungen"
   },
+  "Equipment": {
+    "hubTitle": "Geräteverleih",
+    "hubSubtitle": "Dolmetscherkabinen, Audiosysteme, Empfänger, Kopfhörer und Mikrofone — mit technischer Einrichtung in Dubai geliefert.",
+    "categoryFacet": "Kategorie",
+    "perDay": "{price} $/Tag",
+    "specsTitle": "Spezifikationen",
+    "stockAvailable": "{count} Einheiten auf Lager",
+    "formTitle": "Diese Ausrüstung anfragen",
+    "formQuantity": "Menge",
+    "formStartDate": "Startdatum",
+    "formEndDate": "Enddatum",
+    "formDeliveryCity": "Lieferstadt",
+    "viewDetails": "Details ansehen"
+  },
   "Footer": {
     "rightsReserved": "Alle Rechte vorbehalten.",
     "address": "Abu Saif Business Center - Al-Kazim Building - Block A - M Floor - Office 40B, Abu Hail, Dubai, Vereinigte Arabische Emirate",

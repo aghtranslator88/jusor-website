@@ -122,6 +122,20 @@
     "faqTitle": "Frequently Asked Questions",
     "relatedServicesTitle": "Related Services"
   },
+  "Equipment": {
+    "hubTitle": "Equipment Rental",
+    "hubSubtitle": "Interpretation booths, audio systems, receivers, headsets, and microphones — delivered with technician setup in Dubai.",
+    "categoryFacet": "Category",
+    "perDay": "${price}/day",
+    "specsTitle": "Specifications",
+    "stockAvailable": "{count} units in stock",
+    "formTitle": "Request This Equipment",
+    "formQuantity": "Quantity",
+    "formStartDate": "Start date",
+    "formEndDate": "End date",
+    "formDeliveryCity": "Delivery city",
+    "viewDetails": "View Details"
+  },
   "Footer": {
     "rightsReserved": "All rights reserved.",
     "address": "Abu Saif Business Center - Al-Kazim Building - Block A - M Floor - Office 40B, Abu Hail, Dubai, United Arab Emirates",

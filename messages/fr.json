@@ -122,6 +122,20 @@
     "faqTitle": "Questions fréquentes",
     "relatedServicesTitle": "Services associés"
   },
+  "Equipment": {
+    "hubTitle": "Location d'équipement",
+    "hubSubtitle": "Cabines d'interprétation, systèmes audio, récepteurs, casques et microphones — livrés avec installation technique à Dubaï.",
+    "categoryFacet": "Catégorie",
+    "perDay": "{price} $/jour",
+    "specsTitle": "Spécifications",
+    "stockAvailable": "{count} unités en stock",
+    "formTitle": "Demander cet équipement",
+    "formQuantity": "Quantité",
+    "formStartDate": "Date de début",
+    "formEndDate": "Date de fin",
+    "formDeliveryCity": "Ville de livraison",
+    "viewDetails": "Voir les détails"
+  },
   "Footer": {
     "rightsReserved": "Tous droits réservés.",
     "address": "Abu Saif Business Center - Al-Kazim Building - Block A - M Floor - Office 40B, Abu Hail, Dubaï, Émirats Arabes Unis",

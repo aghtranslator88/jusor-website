@@ -122,6 +122,20 @@
     "faqTitle": "Domande frequenti",
     "relatedServicesTitle": "Servizi correlati"
   },
+  "Equipment": {
+    "hubTitle": "Noleggio attrezzature",
+    "hubSubtitle": "Cabine di interpretariato, sistemi audio, ricevitori, cuffie e microfoni — consegnati con installazione tecnica a Dubai.",
+    "categoryFacet": "Categoria",
+    "perDay": "${price}/giorno",
+    "specsTitle": "Specifiche",
+    "stockAvailable": "{count} unità disponibili",
+    "formTitle": "Richiedi questa attrezzatura",
+    "formQuantity": "Quantità",
+    "formStartDate": "Data di inizio",
+    "formEndDate": "Data di fine",
+    "formDeliveryCity": "Città di consegna",
+    "viewDetails": "Vedi dettagli"
+  },
   "Footer": {
     "rightsReserved": "Tutti i diritti riservati.",
     "address": "Abu Saif Business Center - Al-Kazim Building - Block A - M Floor - Office 40B, Abu Hail, Dubai, Emirati Arabi Uniti",

@@ -122,6 +122,20 @@
     "faqTitle": "Preguntas frecuentes",
     "relatedServicesTitle": "Servicios relacionados"
   },
+  "Equipment": {
+    "hubTitle": "Alquiler de equipos",
+    "hubSubtitle": "Cabinas de interpretación, sistemas de audio, receptores, auriculares y micrófonos — entregados con instalación técnica en Dubái.",
+    "categoryFacet": "Categoría",
+    "perDay": "${price}/día",
+    "specsTitle": "Especificaciones",
+    "stockAvailable": "{count} unidades en stock",
+    "formTitle": "Solicitar este equipo",
+    "formQuantity": "Cantidad",
+    "formStartDate": "Fecha de inicio",
+    "formEndDate": "Fecha de fin",
+    "formDeliveryCity": "Ciudad de entrega",
+    "viewDetails": "Ver detalles"
+  },
   "Footer": {
     "rightsReserved": "Todos los derechos reservados.",
     "address": "Abu Saif Business Center - Al-Kazim Building - Block A - M Floor - Office 40B, Abu Hail, Dubái, Emiratos Árabes Unidos",
