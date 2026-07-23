@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { getAlternates } from "@/lib/metadata";
 import { ShieldCheck, Lock, Gavel, Clock, ArrowRight, BadgeCheck } from "lucide-react";
 
 export async function generateMetadata({
@@ -14,7 +15,7 @@ export async function generateMetadata({
   return {
     title: t("aboutTitle"),
     description: t("aboutSubtitle"),
-    alternates: { canonical: `/${locale}/company/about` },
+    alternates: getAlternates(locale, "/company/about"),
   };
 }
 

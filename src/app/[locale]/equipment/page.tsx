@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { getAlternates } from "@/lib/metadata";
 import { Speaker } from "lucide-react";
 import { equipmentItems, equipmentCategoryLabels } from "@/content/equipment";
 
@@ -17,7 +18,7 @@ export async function generateMetadata({
   return {
     title: t("hubTitle"),
     description: t("hubSubtitle"),
-    alternates: { canonical: `/${locale}/equipment` },
+    alternates: getAlternates(locale, "/equipment"),
   };
 }
 

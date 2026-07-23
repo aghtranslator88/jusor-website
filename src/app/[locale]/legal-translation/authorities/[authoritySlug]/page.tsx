@@ -1,13 +1,17 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { routing } from "@/i18n/routing";
+import { getAlternates } from "@/lib/metadata";
 import { authorities, getAuthorityBySlug } from "@/content/legal-translation";
 import { AuthorityDetailPage } from "@/components/legal-translation/AuthorityDetailPage";
 
 type Locale = "en" | "ar";
 
 export function generateStaticParams() {
-  return authorities.filter((a) => a.type !== "EMBASSY").map((a) => ({ authoritySlug: a.slug }));
+  return authorities
+    .filter((a) => a.type !== "EMBASSY")
+    .flatMap((a) => routing.locales.map((locale) => ({ locale, authoritySlug: a.slug })));
 }
 
 export async function generateMetadata({
@@ -23,7 +27,7 @@ export async function generateMetadata({
   return {
     title: authority.name[l] ?? authority.name.en,
     description: authority.description[l] ?? authority.description.en,
-    alternates: { canonical: `/${locale}/legal-translation/authorities/${authoritySlug}` },
+    alternates: getAlternates(locale, `/legal-translation/authorities/${authoritySlug}`),
   };
 }
 

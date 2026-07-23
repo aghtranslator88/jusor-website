@@ -5,13 +5,20 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { blogPosts, getBlogPostBySlug, blogCategories } from "@/content/blog";
 import { ArticleBody } from "@/components/knowledge/ArticleBody";
 import { ArticleFAQAccordion } from "@/components/knowledge/ArticleFAQAccordion";
+import { TableOfContents } from "@/components/knowledge/TableOfContents";
+import { WhatsAppCTA } from "@/components/shared/WhatsAppCTA";
+import { extractHeadingsFromMarkdown } from "@/lib/toc";
+import { getAlternates } from "@/lib/metadata";
+import { routing } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
 import { Clock, ChevronRight } from "lucide-react";
 
 type Locale = "en" | "ar";
 
 export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+  return blogPosts.flatMap((post) =>
+    routing.locales.map((locale) => ({ locale, slug: post.slug }))
+  );
 }
 
 export async function generateMetadata({
@@ -27,7 +34,7 @@ export async function generateMetadata({
   return {
     title: post.title[l] ?? post.title.en,
     description: post.excerpt[l] ?? post.excerpt.en,
-    alternates: { canonical: `/${locale}/knowledge/${slug}` },
+    alternates: getAlternates(locale, `/knowledge/${slug}`),
     openGraph: {
       title: post.title[l] ?? post.title.en,
       description: post.excerpt[l] ?? post.excerpt.en,
@@ -53,6 +60,8 @@ export default async function ArticlePage({
   const title = post.title[l] ?? post.title.en ?? "";
   const definitionBlock = post.definitionBlock[l] ?? post.definitionBlock.en ?? "";
   const bodyMarkdown = post.bodyMarkdown[l] ?? post.bodyMarkdown.en ?? "";
+  const headings = extractHeadingsFromMarkdown(bodyMarkdown);
+
   const faqs = post.faqs.map((f) => ({
     question: f.question[l] ?? f.question.en ?? "",
     answer: f.answer[l] ?? f.answer.en ?? "",
@@ -91,7 +100,7 @@ export default async function ArticlePage({
   };
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-16 md:px-8 md:py-24">
+    <main className="mx-auto max-w-5xl px-4 py-16 md:px-8 md:py-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -126,16 +135,28 @@ export default async function ArticlePage({
         />
       </div>
 
-      <div
-        data-answer-block
-        className="mt-8 rounded-e-lg border-s-4 border-primary-600 bg-primary-50 p-5 text-body-lg text-slate-700"
-      >
-        {definitionBlock}
+      <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-12">
+        <div className="space-y-8 lg:col-span-8">
+          <div
+            data-answer-block
+            className="rounded-e-lg border-s-4 border-primary-600 bg-primary-50 p-5 text-body-lg text-slate-700"
+          >
+            {definitionBlock}
+          </div>
+
+          <WhatsAppCTA variant="inline" articleTitle={title} />
+
+          <ArticleBody markdown={bodyMarkdown} />
+
+          <WhatsAppCTA variant="inline" articleTitle={title} />
+
+          <ArticleFAQAccordion title={t("faqTitle")} faqs={faqs} />
+        </div>
+
+        <aside className="lg:col-span-4">
+          <TableOfContents headings={headings} />
+        </aside>
       </div>
-
-      <ArticleBody markdown={bodyMarkdown} />
-
-      <ArticleFAQAccordion title={t("faqTitle")} faqs={faqs} />
     </main>
   );
 }

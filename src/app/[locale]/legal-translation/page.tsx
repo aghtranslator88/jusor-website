@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { getAlternates } from "@/lib/metadata";
 import { Globe2, Landmark, Gavel, GraduationCap, ArrowRight } from "lucide-react";
 import { authorities, documentTypes, languagePairs } from "@/content/legal-translation";
 import { DocumentTypeGrid } from "@/components/legal-translation/DocumentTypeGrid";
@@ -26,7 +27,7 @@ export async function generateMetadata({
   return {
     title: t("hubTitle"),
     description: t("hubSubtitle"),
-    alternates: { canonical: `/${locale}/legal-translation` },
+    alternates: getAlternates(locale, "/legal-translation"),
   };
 }
 

@@ -2,6 +2,9 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
+import { getAlternates } from "@/lib/metadata";
+import { WhatsAppCTA } from "@/components/shared/WhatsAppCTA";
 import { ChevronRight, FileCheck2 } from "lucide-react";
 import {
   documentTypes,
@@ -14,7 +17,9 @@ import { ApplicableAuthoritiesList } from "@/components/legal-translation/Applic
 type Locale = "en" | "ar";
 
 export function generateStaticParams() {
-  return documentTypes.map((d) => ({ documentSlug: d.slug }));
+  return documentTypes.flatMap((d) =>
+    routing.locales.map((locale) => ({ locale, documentSlug: d.slug }))
+  );
 }
 
 export async function generateMetadata({
@@ -30,7 +35,7 @@ export async function generateMetadata({
   return {
     title: doc.name[l] ?? doc.name.en,
     description: doc.description[l] ?? doc.description.en,
-    alternates: { canonical: `/${locale}/legal-translation/documents/${documentSlug}` },
+    alternates: getAlternates(locale, `/legal-translation/documents/${documentSlug}`),
   };
 }
 
@@ -48,6 +53,7 @@ export default async function DocumentDetailPage({
 
   const t = await getTranslations({ locale, namespace: "LegalTranslation" });
   const applicableAuthorities = getAuthoritiesForDocument(documentSlug);
+  const docName = doc.name[l] ?? doc.name.en ?? "";
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://jusortrans.com";
   const jsonLd = {
@@ -55,7 +61,7 @@ export default async function DocumentDetailPage({
     "@graph": [
       {
         "@type": "Product",
-        name: doc.name[l] ?? doc.name.en,
+        name: docName,
         category: doc.category,
         offers: [
           {
@@ -70,7 +76,7 @@ export default async function DocumentDetailPage({
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: t("hubTitle"), item: `${siteUrl}/${locale}/legal-translation` },
-          { "@type": "ListItem", position: 2, name: doc.name[l] ?? doc.name.en },
+          { "@type": "ListItem", position: 2, name: docName },
         ],
       },
     ],
@@ -88,14 +94,14 @@ export default async function DocumentDetailPage({
           {t("hubTitle")}
         </Link>
         <ChevronRight className="size-3.5 rtl:rotate-180" aria-hidden />
-        <span className="truncate text-slate-700">{doc.name[l] ?? doc.name.en}</span>
+        <span className="truncate text-slate-700">{docName}</span>
       </nav>
 
       <div className="mt-4 flex items-center gap-4">
         <div className="flex size-14 shrink-0 items-center justify-center rounded-full bg-primary-50">
           <FileCheck2 className="size-7 text-primary-600" aria-hidden />
         </div>
-        <h1 className="text-display-lg font-extrabold text-slate-900">{doc.name[l] ?? doc.name.en}</h1>
+        <h1 className="text-display-lg font-extrabold text-slate-900">{docName}</h1>
       </div>
 
       <div data-answer-block className="mt-6 rounded-e-lg border-s-4 border-primary-600 bg-primary-50 p-5 text-body-lg text-slate-700">
@@ -105,6 +111,8 @@ export default async function DocumentDetailPage({
       <section className="mt-10">
         <PricingTierTable document={doc} />
       </section>
+
+      <WhatsAppCTA variant="inline" documentName={docName} className="mt-10" />
 
       <section className="mt-10">
         <h2 className="text-h2 font-bold text-slate-900">

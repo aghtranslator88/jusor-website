@@ -1,5 +1,7 @@
-import { setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import { getHomeContent } from "@/data/home-content";
+import { getAlternates } from "@/lib/metadata";
 import { HeroSection } from "@/components/home/HeroSection";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
@@ -7,6 +9,20 @@ import { StatsSection } from "@/components/home/StatsSection";
 import { LanguagesMatrix } from "@/components/home/LanguagesMatrix";
 import { WorkflowSteps } from "@/components/home/WorkflowSteps";
 import { FAQSection } from "@/components/home/FAQSection";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: getAlternates(locale, "/"),
+  };
+}
 
 export default async function HomePage({
   params,

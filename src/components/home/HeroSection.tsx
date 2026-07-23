@@ -1,9 +1,11 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
+import { primaryOffice } from "@/content/company";
 
 export function HeroSection() {
   const t = useTranslations("Home");
+  const tWa = useTranslations("WhatsApp");
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-primary-600 to-primary-700 px-4 py-20 text-center md:px-8 md:py-28">
@@ -28,6 +30,15 @@ export function HeroSection() {
           >
             {t("ctaSecondary")}
           </Link>
+          <a
+            href={primaryOffice.whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-body font-semibold text-white shadow-sm transition-colors hover:bg-[#20bd5a]"
+          >
+            <MessageCircle className="size-4 fill-current text-white" aria-hidden />
+            <span>{tWa("chatButton")}</span>
+          </a>
         </div>
       </div>
     </section>

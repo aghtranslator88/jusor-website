@@ -2,6 +2,9 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
+import { getAlternates } from "@/lib/metadata";
+import { WhatsAppCTA } from "@/components/shared/WhatsAppCTA";
 import { ChevronRight, Speaker, PackageCheck } from "lucide-react";
 import { equipmentItems, getEquipmentBySlug, equipmentCategoryLabels } from "@/content/equipment";
 import { EquipmentSpecTable } from "@/components/equipment/EquipmentSpecTable";
@@ -10,7 +13,9 @@ import { EquipmentBookingForm } from "@/components/equipment/EquipmentBookingFor
 type Locale = "en" | "ar";
 
 export function generateStaticParams() {
-  return equipmentItems.map((item) => ({ itemSlug: item.slug }));
+  return equipmentItems.flatMap((item) =>
+    routing.locales.map((locale) => ({ locale, itemSlug: item.slug }))
+  );
 }
 
 export async function generateMetadata({
@@ -26,7 +31,7 @@ export async function generateMetadata({
   return {
     title: item.name[l] ?? item.name.en,
     description: item.description[l] ?? item.description.en,
-    alternates: { canonical: `/${locale}/equipment/${itemSlug}` },
+    alternates: getAlternates(locale, `/equipment/${itemSlug}`),
   };
 }
 
@@ -107,7 +112,10 @@ export default async function EquipmentDetailPage({
 
       <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
         <EquipmentSpecTable specifications={item.specifications} />
-        <EquipmentBookingForm itemName={name} />
+        <div>
+          <EquipmentBookingForm itemName={name} />
+          <WhatsAppCTA variant="inline" equipmentName={name} className="mt-6" />
+        </div>
       </div>
 
       {relatedItems.length > 0 && (

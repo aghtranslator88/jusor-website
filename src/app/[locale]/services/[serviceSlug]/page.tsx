@@ -2,6 +2,9 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
+import { getAlternates } from "@/lib/metadata";
+import { WhatsAppCTA } from "@/components/shared/WhatsAppCTA";
 import {
   Globe, Smartphone, Gamepad2, FileCog, Stethoscope, Landmark, Speaker, Sparkles,
   CheckCircle2, ShieldCheck, ArrowRight, ChevronRight,
@@ -17,7 +20,9 @@ const SERVICE_ICON = {
 } as const;
 
 export function generateStaticParams() {
-  return services.map((s) => ({ serviceSlug: s.slug }));
+  return services.flatMap((s) =>
+    routing.locales.map((locale) => ({ locale, serviceSlug: s.slug }))
+  );
 }
 
 export async function generateMetadata({
@@ -33,7 +38,7 @@ export async function generateMetadata({
   return {
     title: service.name[l] ?? service.name.en,
     description: service.shortDescription[l] ?? service.shortDescription.en,
-    alternates: { canonical: `/${locale}/services/${serviceSlug}` },
+    alternates: getAlternates(locale, `/services/${serviceSlug}`),
   };
 }
 
@@ -166,6 +171,8 @@ export default async function ServiceDetailPage({
           </p>
           <p className="mt-2 text-body text-slate-500">{t("enterpriseNote")}</p>
         </div>
+
+        <WhatsAppCTA variant="inline" serviceName={name} className="mt-8" />
       </section>
 
       <section className="mx-auto w-full max-w-4xl px-4 py-16 md:px-8">

@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
+import { getAlternates } from "@/lib/metadata";
 import { ArrowRight, Users } from "lucide-react";
 import { languagePairs, getLanguagePairBySlug } from "@/content/legal-translation";
 import { documentTypes } from "@/content/legal-translation";
@@ -10,7 +12,9 @@ import { DocumentTypeGrid } from "@/components/legal-translation/DocumentTypeGri
 type Locale = "en" | "ar";
 
 export function generateStaticParams() {
-  return languagePairs.map((p) => ({ pairSlug: p.slug }));
+  return languagePairs.flatMap((p) =>
+    routing.locales.map((locale) => ({ locale, pairSlug: p.slug }))
+  );
 }
 
 export async function generateMetadata({
@@ -27,7 +31,7 @@ export async function generateMetadata({
   return {
     title,
     description: pair.definitionBlock[l] ?? pair.definitionBlock.en,
-    alternates: { canonical: `/${locale}/translations/${pairSlug}` },
+    alternates: getAlternates(locale, `/translations/${pairSlug}`),
   };
 }
 

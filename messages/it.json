@@ -224,5 +224,21 @@
     "phone": "Telefono",
     "mobile": "Cellulare",
     "email": "E-mail"
+  },
+  "WhatsApp": {
+    "chatButton": "Chatta su WhatsApp",
+    "ctaHero": "Chatta su WhatsApp",
+    "bannerTitle": "Hai bisogno di assistenza immediata?",
+    "bannerDesc": "Parla direttamente con i nostri specialisti di traduzione su WhatsApp per un preventivo immediato.",
+    "defaultMessage": "Ciao team JUSOR, ho una richiesta sui servizi di traduzione certificata.",
+    "articleMessage": "Ciao team JUSOR, ho letto il vostro articolo \"{title}\" e ho una domanda.",
+    "serviceMessage": "Ciao team JUSOR, ho bisogno di informazioni su {service}.",
+    "documentMessage": "Ciao team JUSOR, vorrei un preventivo per la traduzione certificata di {document}.",
+    "modeMessage": "Ciao team JUSOR, ho una domanda sui servizi di interpretariato ({mode}).",
+    "equipmentMessage": "Ciao team JUSOR, vorrei informazioni sul noleggio di {item}."
+  },
+  "TOC": {
+    "title": "Indice dei contenuti",
+    "mobileToggle": "Vai alla sezione"
   }
 }

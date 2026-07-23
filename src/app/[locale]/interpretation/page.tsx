@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { getAlternates } from "@/lib/metadata";
 import { Mic, MessageSquare, Video, Speaker, ArrowRight } from "lucide-react";
 import { interpretationModes } from "@/content/interpretation";
 
@@ -19,7 +20,7 @@ export async function generateMetadata({
   return {
     title: t("hubTitle"),
     description: t("hubSubtitle"),
-    alternates: { canonical: `/${locale}/interpretation` },
+    alternates: getAlternates(locale, "/interpretation"),
   };
 }
 

@@ -6,6 +6,8 @@ import { jakarta, cairo, tajawal } from "../fonts";
 import { routing, getLangDir, type AppLocale } from "@/i18n/routing";
 import { SiteHeader } from "@/components/shared/SiteHeader";
 import { SiteFooter } from "@/components/shared/SiteFooter";
+import { WhatsAppCTA } from "@/components/shared/WhatsAppCTA";
+import { primaryOffice } from "@/content/company";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -22,7 +24,7 @@ export async function generateMetadata({
 
   return {
     metadataBase: new URL(
-      process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+      process.env.NEXT_PUBLIC_SITE_URL ?? "https://jusortrans.com"
     ),
     title: t("title"),
     description: t("description"),
@@ -66,6 +68,31 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   const dir = getLangDir(locale);
   const isArabic = locale === "ar";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://jusortrans.com";
+
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": `${siteUrl}/#organization`,
+        name: "JUSOR — Certified Translation, Localization & Interpretation",
+        legalName: "Jusor Alkalimat Translation Services",
+        url: siteUrl,
+        logo: `${siteUrl}/brand/logo-512.png`,
+        image: `${siteUrl}/brand/logo-512.png`,
+        telephone: primaryOffice.phone,
+        email: primaryOffice.email,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: primaryOffice.addressLine,
+          addressLocality: "Dubai",
+          addressCountry: "AE",
+        },
+        priceRange: "$$",
+      },
+    ],
+  };
 
   return (
     <html
@@ -76,10 +103,15 @@ export default async function LocaleLayout({
       <body
         className={`min-h-full flex flex-col ${isArabic ? "font-arabic" : "font-sans"}`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <SiteHeader />
           <div className="flex flex-1 flex-col">{children}</div>
           <SiteFooter />
+          <WhatsAppCTA variant="floating" />
         </NextIntlClientProvider>
       </body>
     </html>

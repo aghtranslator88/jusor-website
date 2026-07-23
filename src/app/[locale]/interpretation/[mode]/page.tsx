@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Mic, MessageSquare, Video, Speaker } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
+import { getAlternates } from "@/lib/metadata";
+import { WhatsAppCTA } from "@/components/shared/WhatsAppCTA";
 import { interpretationModes, getInterpretationModeBySlug } from "@/content/interpretation";
 import { WhenToUseCard } from "@/components/interpretation/WhenToUseCard";
 import { InterpretationRequestForm } from "@/components/interpretation/InterpretationRequestForm";
@@ -18,7 +21,9 @@ const MODE_ICON = {
 } as const;
 
 export function generateStaticParams() {
-  return interpretationModes.map((m) => ({ mode: m.slug }));
+  return interpretationModes.flatMap((m) =>
+    routing.locales.map((locale) => ({ locale, mode: m.slug }))
+  );
 }
 
 export async function generateMetadata({
@@ -34,7 +39,7 @@ export async function generateMetadata({
   return {
     title: mode.name[l] ?? mode.name.en,
     description: mode.tagline[l] ?? mode.tagline.en,
-    alternates: { canonical: `/${locale}/interpretation/${modeSlug}` },
+    alternates: getAlternates(locale, `/interpretation/${modeSlug}`),
   };
 }
 
@@ -96,6 +101,7 @@ export default async function InterpretationModePage({
         </div>
         <div>
           <InterpretationRequestForm modeName={name} />
+          <WhatsAppCTA variant="inline" modeName={name} className="mt-6" />
         </div>
       </section>
 

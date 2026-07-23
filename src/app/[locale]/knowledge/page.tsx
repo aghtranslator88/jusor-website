@@ -1,5 +1,6 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
+import { getAlternates } from "@/lib/metadata";
 import { blogPosts } from "@/content/blog";
 import { ArticleCard } from "@/components/knowledge/ArticleCard";
 
@@ -13,7 +14,7 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("subtitle"),
-    alternates: { canonical: `/${locale}/knowledge` },
+    alternates: getAlternates(locale, "/knowledge"),
   };
 }
 

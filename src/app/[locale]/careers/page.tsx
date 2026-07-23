@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
+import { getAlternates } from "@/lib/metadata";
 import { FileSearch, GraduationCap, FileEdit, Users, BadgeCheck, Mail } from "lucide-react";
 import { primaryOffice } from "@/content/company";
 
@@ -14,7 +15,7 @@ export async function generateMetadata({
   return {
     title: t("careersTitle"),
     description: t("careersSubtitle"),
-    alternates: { canonical: `/${locale}/careers` },
+    alternates: getAlternates(locale, "/careers"),
   };
 }
 
