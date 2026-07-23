@@ -1,0 +1,45 @@
+# Convenience stack for a single VPS: the Next.js app + a local Postgres
+# instance. Point DATABASE_URL at the `db` service (see .env.example).
+# nginx/TLS is handled at the host level (see docs/DEPLOYMENT.md), not here,
+# so this stays portable across VPS providers.
+#
+# Usage:
+#   docker compose up -d --build
+#   docker compose exec app npx prisma migrate deploy
+#   docker compose exec app npx prisma db seed
+
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql://jusor:${POSTGRES_PASSWORD:-jusor}@db:5432/jusor?schema=public
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: jusor
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-jusor}
+      POSTGRES_DB: jusor
+    volumes:
+      - jusor_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jusor"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    # Not published to the host by default — only reachable from `app`.
+    # Uncomment to allow external DB tools (pgAdmin, TablePlus) to connect:
+    # ports:
+    #   - "5432:5432"
+
+volumes:
+  jusor_pgdata:
