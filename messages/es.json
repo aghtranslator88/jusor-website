@@ -105,6 +105,23 @@
     "modesTitle": "Modos de interpretación",
     "equipmentTitle": "Alquiler de equipos"
   },
+  "Services": {
+    "hubTitle": "Servicios de traducción y localización",
+    "hubSubtitle": "Servicios especializados de traducción y localización para sitios web, software, medios y contenido empresarial — con una opción híbrida IA + humano para necesidades de gran volumen.",
+    "capabilitiesTitle": "Capacidades",
+    "hybridWorkflowTitle": "Cómo funciona nuestro flujo híbrido",
+    "workflowStage1": "Borrador de IA",
+    "workflowStage2": "Revisión lingüística",
+    "workflowStage3": "Control de calidad",
+    "workflowStage4": "Entrega al cliente",
+    "complianceTitle": "Confidencialidad y cumplimiento",
+    "pricingSnapshot": "Desde ${price}/palabra",
+    "enterpriseNote": "Descuentos por volumen disponibles para proyectos de más de 50,000 palabras.",
+    "ctaPrimary": "Solicitar presupuesto empresarial",
+    "ctaSecondary": "Presupuesto instantáneo",
+    "faqTitle": "Preguntas frecuentes",
+    "relatedServicesTitle": "Servicios relacionados"
+  },
   "Footer": {
     "rightsReserved": "Todos los derechos reservados.",
     "address": "Abu Saif Business Center - Al-Kazim Building - Block A - M Floor - Office 40B, Abu Hail, Dubái, Emiratos Árabes Unidos",

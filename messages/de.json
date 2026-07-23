@@ -105,6 +105,23 @@
     "modesTitle": "Dolmetschmodi",
     "equipmentTitle": "Geräteverleih"
   },
+  "Services": {
+    "hubTitle": "Übersetzungs- und Lokalisierungsdienste",
+    "hubSubtitle": "Spezialisierte Übersetzungs- und Lokalisierungsdienste für Websites, Software, Medien und Unternehmensinhalte — mit einer KI-Mensch-Hybridoption für hohes Volumen.",
+    "capabilitiesTitle": "Fähigkeiten",
+    "hybridWorkflowTitle": "So funktioniert unser Hybrid-Workflow",
+    "workflowStage1": "KI-Entwurf",
+    "workflowStage2": "Linguistenprüfung",
+    "workflowStage3": "Qualitätsprüfung",
+    "workflowStage4": "Lieferung an den Kunden",
+    "complianceTitle": "Vertraulichkeit & Compliance",
+    "pricingSnapshot": "Ab {price} $/Wort",
+    "enterpriseNote": "Mengenrabatte für Projekte ab 50.000 Wörtern verfügbar.",
+    "ctaPrimary": "Unternehmensangebot anfordern",
+    "ctaSecondary": "Sofortiges Angebot",
+    "faqTitle": "Häufig gestellte Fragen",
+    "relatedServicesTitle": "Verwandte Dienstleistungen"
+  },
   "Footer": {
     "rightsReserved": "Alle Rechte vorbehalten.",
     "address": "Abu Saif Business Center - Al-Kazim Building - Block A - M Floor - Office 40B, Abu Hail, Dubai, Vereinigte Arabische Emirate",

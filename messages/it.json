@@ -105,6 +105,23 @@
     "modesTitle": "Modalità di interpretariato",
     "equipmentTitle": "Noleggio attrezzature"
   },
+  "Services": {
+    "hubTitle": "Servizi di traduzione e localizzazione",
+    "hubSubtitle": "Servizi specializzati di traduzione e localizzazione per siti web, software, media e contenuti aziendali — con un'opzione ibrida IA + umano per esigenze ad alto volume.",
+    "capabilitiesTitle": "Capacità",
+    "hybridWorkflowTitle": "Come funziona il nostro flusso ibrido",
+    "workflowStage1": "Bozza IA",
+    "workflowStage2": "Revisione linguistica",
+    "workflowStage3": "Controllo qualità",
+    "workflowStage4": "Consegna al cliente",
+    "complianceTitle": "Riservatezza e conformità",
+    "pricingSnapshot": "A partire da ${price}/parola",
+    "enterpriseNote": "Sconti sui volumi disponibili per progetti oltre 50.000 parole.",
+    "ctaPrimary": "Richiedi preventivo aziendale",
+    "ctaSecondary": "Preventivo istantaneo",
+    "faqTitle": "Domande frequenti",
+    "relatedServicesTitle": "Servizi correlati"
+  },
   "Footer": {
     "rightsReserved": "Tutti i diritti riservati.",
     "address": "Abu Saif Business Center - Al-Kazim Building - Block A - M Floor - Office 40B, Abu Hail, Dubai, Emirati Arabi Uniti",
