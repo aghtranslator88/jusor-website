@@ -35,26 +35,15 @@ export default async function HomePage({
 
   const content = getHomeContent(locale);
 
+  // The organization entity (@id "#organization") is emitted once, sitewide,
+  // in src/app/[locale]/layout.tsx. Do NOT re-emit it here — an earlier
+  // version of this page duplicated it as a separate "Organization" node
+  // with the same @id but different property values (name, missing
+  // hasCredential/areaServed/etc.), which is invalid duplicate structured
+  // data. This page only references that entity via @id.
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://jusortrans.com/#organization",
-        name: "JUSOR",
-        alternateName: "جسور",
-        url: "https://jusortrans.com",
-        logo: "https://jusortrans.com/brand/logo-512.png",
-        email: "info@jusortans.com",
-        telephone: "+971-4-2548674",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress:
-            "Abu Saif Business Center - Al-Kazim Building - Block A - M Floor - Office 40B, Abu Hail",
-          addressLocality: "Dubai",
-          addressCountry: "AE",
-        },
-      },
       {
         "@type": "Service",
         serviceType: "Certified Translation and Localization",
