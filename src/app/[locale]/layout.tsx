@@ -78,6 +78,15 @@ export default async function LocaleLayout({
         "@id": `${siteUrl}/#organization`,
         name: "JUSOR — Certified Translation, Localization & Interpretation",
         legalName: "Jusor Alkalimat Translation Services",
+        // Official registered name, confirmed by the business owner — kept
+        // as alternateName rather than replacing `name`/`legalName` above so
+        // this single-page addition doesn't ripple into every other page's
+        // existing branding without a separate, deliberate pass. See
+        // src/content/about.ts header comment for the full explanation.
+        alternateName: [
+          "JUSOR ALKALIMAT TRANSLATION EDITING & PROOFREADING SERVICES",
+          "جسور الكلمات لخدمات الترجمة والتدقيق واللغوي",
+        ],
         url: siteUrl,
         logo: `${siteUrl}/brand/logo-512.png`,
         image: `${siteUrl}/brand/logo-512.png`,
@@ -88,6 +97,22 @@ export default async function LocaleLayout({
           streetAddress: primaryOffice.addressLine,
           addressLocality: "Dubai",
           addressCountry: "AE",
+        },
+        areaServed: [
+          { "@type": "Country", name: "United Arab Emirates" },
+          { "@type": "City", name: "Dubai" },
+        ],
+        availableLanguage: ["ar", "en"],
+        // MOJ approval confirmed by the owner; no license number is
+        // published at the owner's request (see src/content/about.ts).
+        hasCredential: {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "license",
+          name: "Certified Legal Translation Approval",
+          recognizedBy: {
+            "@type": "GovernmentOrganization",
+            name: "Ministry of Justice, United Arab Emirates",
+          },
         },
         priceRange: "$$",
       },
@@ -108,6 +133,12 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-body font-semibold focus:text-primary-700 focus:shadow-lg"
+          >
+            {isArabic ? "تخطَّ إلى المحتوى الرئيسي" : "Skip to main content"}
+          </a>
           <SiteHeader />
           <div className="flex flex-1 flex-col">{children}</div>
           <SiteFooter />

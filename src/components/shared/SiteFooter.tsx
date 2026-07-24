@@ -1,7 +1,9 @@
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Logo } from "./Logo";
 import { Phone, Smartphone, Mail, MapPin } from "lucide-react";
+import { CredentialBlock } from "@/components/about/CredentialBlock";
+import { credentialLine } from "@/content/about";
 
 const FOOTER_LINKS = [
   {
@@ -16,7 +18,7 @@ const FOOTER_LINKS = [
   {
     titleKey: "company",
     items: [
-      { href: "/company/about", key: "about" },
+      { href: "/about", key: "about" },
       { href: "/careers", key: "careers" },
       { href: "/contact", key: "contact" },
       { href: "/knowledge", key: "knowledge" },
@@ -27,6 +29,8 @@ const FOOTER_LINKS = [
 export function SiteFooter() {
   const t = useTranslations("Nav");
   const tf = useTranslations("Footer");
+  const locale = useLocale();
+  const l = locale === "ar" ? "ar" : "en";
 
   return (
     <footer className="border-t border-slate-200 bg-primary-900 text-slate-200">
@@ -87,6 +91,13 @@ export function SiteFooter() {
             </li>
           </ul>
         </div>
+      </div>
+
+      <div className="border-t border-white/10 px-4 py-5 md:px-8">
+        <CredentialBlock
+          line={credentialLine[l] ?? credentialLine.en!}
+          className="mx-auto max-w-3xl text-caption font-medium text-slate-300"
+        />
       </div>
 
       <div className="border-t border-white/10">

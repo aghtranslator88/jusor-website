@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/equipment",
     "/documents",
     "/knowledge",
+    "/about",
     "/company/about",
     "/company/offices",
     "/careers",

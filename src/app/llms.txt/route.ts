@@ -72,6 +72,9 @@ ${interpretationLines}
 - [Knowledge Base Index](${baseUrl}/en/knowledge)
 ${blogLines}
 
+## About
+- [About Us](${baseUrl}/en/about): Company credentials, Ministry of Justice approval, and quality process.
+
 ## Company
 - [About JUSOR](${baseUrl}/en/company/about)
 - [Office Locations](${baseUrl}/en/company/offices)
