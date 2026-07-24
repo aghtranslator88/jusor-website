@@ -59,7 +59,6 @@ export default async function ServiceDetailPage({
   const name = service.name[l] ?? service.name.en ?? "";
   const relatedServices = services.filter((s) => s.slug !== service.slug).slice(0, 3);
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://jusortrans.com";
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
