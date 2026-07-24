@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { getHomeContent } from "@/data/home-content";
 import { getAlternates } from "@/lib/metadata";
-import { Link } from "@/i18n/navigation";
 import { HeroSection } from "@/components/home/HeroSection";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
@@ -10,6 +9,7 @@ import { StatsSection } from "@/components/home/StatsSection";
 import { LanguagesMatrix } from "@/components/home/LanguagesMatrix";
 import { WorkflowSteps } from "@/components/home/WorkflowSteps";
 import { FAQSection } from "@/components/home/FAQSection";
+import { FinalCTA } from "@/components/home/FinalCTA";
 
 export async function generateMetadata({
   params,
@@ -74,28 +74,7 @@ export default async function HomePage({
       <LanguagesMatrix languages={content.languages} />
       <WorkflowSteps steps={content.workflow} />
       <FAQSection faqs={content.faqs} />
-
-      <section className="mx-auto max-w-3xl px-4 pb-16 text-center md:px-8">
-        <p className="text-body text-slate-600">
-          {locale === "ar" ? (
-            <>
-              اطّلع على{" "}
-              <Link href="/about" className="font-semibold text-primary-600 hover:text-primary-700">
-                اعتماد جسور لدى وزارة العدل وطريقة عملنا في الترجمة القانونية المعتمدة
-              </Link>
-              .
-            </>
-          ) : (
-            <>
-              Learn about{" "}
-              <Link href="/about" className="font-semibold text-primary-600 hover:text-primary-700">
-                JUSOR&apos;s Ministry of Justice approval and certified legal translation process
-              </Link>
-              .
-            </>
-          )}
-        </p>
-      </section>
+      <FinalCTA />
     </main>
   );
 }

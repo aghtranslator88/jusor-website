@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { ChevronDown } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import type { HomeContent } from "@/data/home-content";
 
 export function FAQSection({ faqs }: { faqs: HomeContent["faqs"] }) {
@@ -36,6 +37,17 @@ export function FAQSection({ faqs }: { faqs: HomeContent["faqs"] }) {
           );
         })}
       </div>
+      <p className="mt-6 text-center text-body text-slate-600">
+        {t("faqPricingLinkText")}{" "}
+        <Link href="/documents" className="font-semibold text-primary-600 hover:text-primary-700">
+          {t("faqPricingCatalogLink")}
+        </Link>{" "}
+        {t("faqPricingLinkOr")}{" "}
+        <Link href="/quotes/submit" className="font-semibold text-primary-600 hover:text-primary-700">
+          {t("faqPricingQuoteLink")}
+        </Link>
+        .
+      </p>
     </section>
   );
 }

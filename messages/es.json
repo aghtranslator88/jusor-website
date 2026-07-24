@@ -4,6 +4,7 @@
     "description": "JUSOR (جسور) es una empresa de traducción y localización acreditada internacionalmente que ofrece traducción certificada de documentos, localización empresarial e interpretación en más de 60 combinaciones de idiomas."
   },
   "Nav": {
+    "home": "Inicio",
     "services": "Servicios",
     "legalTranslation": "Traducción legal",
     "interpretation": "Interpretación",
@@ -28,7 +29,13 @@
     "statsTitle": "JUSOR en cifras",
     "languagesTitle": "Idiomas admitidos",
     "workflowTitle": "Cómo funciona",
-    "faqTitle": "Preguntas frecuentes"
+    "faqTitle": "Preguntas frecuentes",
+    "faqPricingLinkText": "Para un precio exacto, consulta nuestro",
+    "faqPricingCatalogLink": "catálogo completo de precios de documentos",
+    "faqPricingLinkOr": "u",
+    "faqPricingQuoteLink": "obtén un presupuesto instantáneo",
+    "finalCtaTitle": "¿Listo para traducir tu documento?",
+    "finalCtaSubtitle": "Obtén un presupuesto certificado en minutos, o habla con nuestro equipo sobre tu proyecto."
   },
   "Knowledge": {
     "title": "Centro de conocimiento",

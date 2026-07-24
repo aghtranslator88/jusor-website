@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import type { HomeContent } from "@/data/home-content";
 import { DynamicIcon } from "@/components/shared/icon-map";
 
@@ -13,13 +14,19 @@ export function WhyChooseUs({ items }: { items: HomeContent["whyChooseUs"] }) {
         </h2>
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => (
-            <div key={item.title} className="text-center">
+            <Link
+              key={item.title}
+              href={item.href}
+              className="group text-center transition-opacity hover:opacity-80"
+            >
               <div className="mx-auto flex size-14 items-center justify-center rounded-full bg-white shadow-card">
                 <DynamicIcon name={item.icon} className="size-7 text-accent-500" />
               </div>
-              <h3 className="mt-4 text-h3 font-semibold text-slate-900">{item.title}</h3>
+              <h3 className="mt-4 text-h3 font-semibold text-slate-900 group-hover:text-primary-600">
+                {item.title}
+              </h3>
               <p className="mt-2 text-body text-slate-600">{item.description}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

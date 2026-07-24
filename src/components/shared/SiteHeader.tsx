@@ -19,6 +19,20 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-6 lg:flex">
           <Link
+            href="/"
+            className="text-body text-slate-600 transition-colors hover:text-primary-600"
+          >
+            {t("home")}
+          </Link>
+
+          <Link
+            href="/about"
+            className="text-body text-slate-600 transition-colors hover:text-primary-600"
+          >
+            {t("about")}
+          </Link>
+
+          <Link
             href="/services"
             className="text-body text-slate-600 transition-colors hover:text-primary-600"
           >
@@ -104,13 +118,6 @@ export function SiteHeader() {
           >
             {t("knowledge")}
           </Link>
-
-          <Link
-            href="/about"
-            className="text-body text-slate-600 transition-colors hover:text-primary-600"
-          >
-            {t("about")}
-          </Link>
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -137,6 +144,22 @@ export function SiteHeader() {
       {mobileOpen && (
         <div className="border-t border-slate-200 bg-white px-4 py-4 lg:hidden">
           <nav className="flex flex-col gap-1">
+            <Link
+              href="/"
+              onClick={() => setMobileOpen(false)}
+              className="rounded-lg px-3 py-2.5 text-body text-slate-700 hover:bg-slate-50"
+            >
+              {t("home")}
+            </Link>
+
+            <Link
+              href="/about"
+              onClick={() => setMobileOpen(false)}
+              className="rounded-lg px-3 py-2.5 text-body text-slate-700 hover:bg-slate-50"
+            >
+              {t("about")}
+            </Link>
+
             <Link
               href="/services"
               onClick={() => setMobileOpen(false)}
@@ -190,14 +213,6 @@ export function SiteHeader() {
               className="rounded-lg px-3 py-2.5 text-body text-slate-700 hover:bg-slate-50"
             >
               {t("knowledge")}
-            </Link>
-
-            <Link
-              href="/about"
-              onClick={() => setMobileOpen(false)}
-              className="rounded-lg px-3 py-2.5 text-body text-slate-700 hover:bg-slate-50"
-            >
-              {t("about")}
             </Link>
           </nav>
 

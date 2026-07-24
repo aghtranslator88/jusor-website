@@ -4,6 +4,7 @@
     "description": "جسور شركة ترجمة وتوطين معتمدة دولياً، تقدم خدمات ترجمة المستندات المعتمدة، وتوطين الأعمال، والترجمة الفورية عبر أكثر من 60 زوجاً لغوياً."
   },
   "Nav": {
+    "home": "الرئيسية",
     "services": "الخدمات",
     "legalTranslation": "الترجمة القانونية",
     "interpretation": "الترجمة الفورية",
@@ -28,7 +29,13 @@
     "statsTitle": "جسور بالأرقام",
     "languagesTitle": "اللغات المدعومة",
     "workflowTitle": "كيف نعمل",
-    "faqTitle": "الأسئلة الشائعة"
+    "faqTitle": "الأسئلة الشائعة",
+    "faqPricingLinkText": "للحصول على السعر الدقيق، تصفّح",
+    "faqPricingCatalogLink": "كتالوج أسعار المستندات الكامل",
+    "faqPricingLinkOr": "أو",
+    "faqPricingQuoteLink": "احصل على عرض سعر فوري",
+    "finalCtaTitle": "هل أنت جاهز لترجمة مستندك؟",
+    "finalCtaSubtitle": "احصل على عرض سعر معتمد خلال دقائق، أو تحدّث مع فريقنا حول مشروعك."
   },
   "Knowledge": {
     "title": "مركز المعرفة",
