@@ -124,9 +124,11 @@ export default async function LocaleLayout({
       lang={locale}
       dir={dir}
       className={`${jakarta.variable} ${cairo.variable} ${tajawal.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body
         className={`min-h-full flex flex-col ${isArabic ? "font-arabic" : "font-sans"}`}
+        suppressHydrationWarning
       >
         <script
           type="application/ld+json"
