@@ -104,6 +104,13 @@ export function SiteHeader() {
           >
             {t("knowledge")}
           </Link>
+
+          <Link
+            href="/about"
+            className="text-body text-slate-600 transition-colors hover:text-primary-600"
+          >
+            {t("about")}
+          </Link>
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -183,6 +190,14 @@ export function SiteHeader() {
               className="rounded-lg px-3 py-2.5 text-body text-slate-700 hover:bg-slate-50"
             >
               {t("knowledge")}
+            </Link>
+
+            <Link
+              href="/about"
+              onClick={() => setMobileOpen(false)}
+              className="rounded-lg px-3 py-2.5 text-body text-slate-700 hover:bg-slate-50"
+            >
+              {t("about")}
             </Link>
           </nav>
 
