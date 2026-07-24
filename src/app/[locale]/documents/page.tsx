@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { getAlternates } from "@/lib/metadata";
 import { DocumentCatalog } from "@/components/documents/DocumentCatalog";
@@ -28,14 +29,25 @@ export default async function DocumentsPage({
   const t = await getTranslations({ locale, namespace: "Documents" });
 
   return (
-    <main className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-2xl text-center">
-        <h1 className="text-display-lg font-extrabold text-slate-900">{t("title")}</h1>
-        <p data-answer-block className="mt-4 text-body-lg text-slate-600">
-          {t("subtitle")}
-        </p>
-      </div>
-      <div className="mt-12">
+    <main className="flex flex-1 flex-col">
+      <section className="relative overflow-hidden bg-primary-700 px-4 py-20 text-center md:px-8 md:py-28">
+        <Image
+          src="/images/hero/documents-signing.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/85 via-primary-800/80 to-primary-700/75" />
+        <div className="relative mx-auto max-w-2xl">
+          <h1 className="text-display-lg font-extrabold text-white">{t("title")}</h1>
+          <p data-answer-block className="mt-4 text-body-lg text-primary-50/90">
+            {t("subtitle")}
+          </p>
+        </div>
+      </section>
+      <div className="mx-auto w-full max-w-7xl px-4 py-16 md:px-8 md:py-24">
         <DocumentCatalog />
       </div>
     </main>

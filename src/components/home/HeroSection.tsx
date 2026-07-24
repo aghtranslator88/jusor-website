@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { primaryOffice } from "@/content/company";
@@ -8,8 +9,17 @@ export function HeroSection() {
   const tWa = useTranslations("WhatsApp");
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary-600 to-primary-700 px-4 py-20 text-center md:px-8 md:py-28">
-      <div className="mx-auto max-w-3xl">
+    <section className="relative overflow-hidden bg-primary-700 px-4 py-20 text-center md:px-8 md:py-28">
+      <Image
+        src="/images/hero/home-earth-lights.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-900/85 via-primary-800/80 to-primary-700/75" />
+      <div className="relative mx-auto max-w-3xl">
         <h1 className="text-display-lg font-extrabold text-white">
           {t("heroHeadline")}
         </h1>

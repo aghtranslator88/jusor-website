@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getAlternates } from "@/lib/metadata";
@@ -37,8 +38,17 @@ export default async function AboutPage({
 
   return (
     <main className="flex flex-1 flex-col">
-      <section className="bg-gradient-to-br from-primary-600 to-primary-700 px-4 py-20 text-center md:px-8 md:py-28">
-        <div className="mx-auto max-w-3xl">
+      <section className="relative overflow-hidden bg-primary-700 px-4 py-20 text-center md:px-8 md:py-28">
+        <Image
+          src="/images/hero/company-dubai-sparkle.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/85 via-primary-800/80 to-primary-700/75" />
+        <div className="relative mx-auto max-w-3xl">
           <h1 className="text-display-lg font-extrabold text-white">{t("aboutTitle")}</h1>
           <p data-answer-block className="mt-6 text-body-lg text-primary-50/90">
             {t("aboutSubtitle")}
