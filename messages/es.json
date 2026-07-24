@@ -54,7 +54,7 @@
     "checklistTitle": "Lista de verificación",
     "applicableAuthorities": "Aceptado por",
     "getQuote": "Presupuesto instantáneo",
-    "fromPrice": "Desde ${price}",
+    "fromPrice": "Desde {price} AED",
     "relatedReading": "Guía relacionada",
     "backToHub": "Volver al centro de traducción jurídica",
     "translatorPool": "Más de {count} lingüistas verificados",

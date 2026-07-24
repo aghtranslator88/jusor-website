@@ -217,142 +217,1679 @@ export const authorities: Authority[] = [
 
 export const documentTypes: DocumentType[] = [
   {
-    slug: "birth-certificate",
-    category: "CIVIL_REGISTRY",
-    name: { en: "Birth Certificate", ar: "شهادة الميلاد" },
-    description: {
-      en: "Certified translation of birth certificates for visa, immigration, and family applications.",
-      ar: "ترجمة معتمدة لشهادات الميلاد لطلبات التأشيرة والهجرة والأسرة.",
+    "slug": "birth-certificate",
+    "category": "CIVIL_REGISTRY",
+    "name": {
+      "en": "UAE Birth Certificate",
+      "ar": "شهادة ميلاد صادرة من الإمارات"
     },
-    definitionBlock: {
-      en: "A certified birth certificate translation is a word-for-word rendering of the original document into the target language, accompanied by a signed certificate of accuracy from an MOJ-licensed translator, typically delivered within 24 hours and accepted by embassies and immigration authorities.",
-      ar: "الترجمة المعتمدة لشهادة الميلاد هي نقل حرفي للمستند الأصلي إلى اللغة المطلوبة، مصحوبة بشهادة دقة موقعة من مترجم مرخص لدى وزارة العدل، وتُسلَّم عادة خلال 24 ساعة وتُقبل لدى السفارات وسلطات الهجرة.",
+    "description": {
+      "en": "Certified legal translation of UAE Birth Certificate (50 AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة ميلاد صادرة من الإمارات (50 درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
     },
-    basePrice: 35,
-    avgTurnaroundHours: 24,
-    requiredUploads: [{ key: "source_document", label: { en: "Birth Certificate (PDF/Image)", ar: "شهادة الميلاد (PDF أو صورة)" } }],
-    relatedArticleSlug: "birth-certificate-attestation-dubai",
+    "definitionBlock": {
+      "en": "Certified translation of UAE Birth Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (50 AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة ميلاد صادرة من الإمارات بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (50 درهم)."
+    },
+    "basePrice": 50,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "UAE Birth Certificate (PDF/Image)",
+          "ar": "شهادة ميلاد صادرة من الإمارات (PDF أو صورة)"
+        }
+      }
+    ]
   },
   {
-    slug: "marriage-certificate",
-    category: "CIVIL_REGISTRY",
-    name: { en: "Marriage Certificate", ar: "عقد الزواج" },
-    description: {
-      en: "Certified translation of marriage certificates and contracts for visa, residency, and family sponsorship.",
-      ar: "ترجمة معتمدة لعقود الزواج لطلبات التأشيرة والإقامة وكفالة الأسرة.",
+    "slug": "egyptian-digital-birth-certificate",
+    "category": "CIVIL_REGISTRY",
+    "name": {
+      "en": "Egyptian Digital Birth Certificate",
+      "ar": "شهادة ميلاد مصرية (مميكنه)"
     },
-    definitionBlock: {
-      en: "A certified marriage certificate translation renders the original marriage contract or civil certificate into the target language with a signed certificate of accuracy, required by embassies, GDRFA, and immigration authorities for family visa and sponsorship applications.",
-      ar: "الترجمة المعتمدة لعقد الزواج تنقل عقد الزواج أو الشهادة المدنية الأصلية إلى اللغة المطلوبة مع شهادة دقة موقعة، وتُطلب من السفارات والإدارة العامة للإقامة وسلطات الهجرة لطلبات التأشيرة العائلية والكفالة.",
+    "description": {
+      "en": "Certified legal translation of Egyptian Digital Birth Certificate (50 AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة ميلاد مصرية (مميكنه) (50 درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
     },
-    basePrice: 35,
-    avgTurnaroundHours: 24,
-    requiredUploads: [{ key: "source_document", label: { en: "Marriage Certificate (PDF/Image)", ar: "عقد الزواج (PDF أو صورة)" } }],
-    relatedArticleSlug: "marriage-certificate-attestation-translation-dubai",
+    "definitionBlock": {
+      "en": "Certified translation of Egyptian Digital Birth Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (50 AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة ميلاد مصرية (مميكنه) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (50 درهم)."
+    },
+    "basePrice": 50,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Egyptian Digital Birth Certificate (PDF/Image)",
+          "ar": "شهادة ميلاد مصرية (مميكنه) (PDF أو صورة)"
+        }
+      }
+    ]
   },
   {
-    slug: "degree-certificate",
-    category: "ACADEMIC",
-    name: { en: "Degree / Academic Certificate", ar: "الشهادة الجامعية" },
-    description: {
-      en: "Certified translation of university degrees and transcripts for employment, residency, and MOE equivalency.",
-      ar: "ترجمة معتمدة للشهادات الجامعية وكشوف الدرجات للتوظيف والإقامة ومعادلة وزارة التربية والتعليم.",
+    "slug": "egyptian-standard-birth-certificate",
+    "category": "CIVIL_REGISTRY",
+    "name": {
+      "en": "Egyptian Standard Birth Certificate",
+      "ar": "شهادة ميلاد مصرية (عاديه)"
     },
-    definitionBlock: {
-      en: "A certified degree translation renders a university diploma and academic transcript into the target language with a signed certificate of accuracy, required by the UAE Ministry of Education for degree equivalency and by employers for work visa applications.",
-      ar: "الترجمة المعتمدة للشهادة الجامعية تنقل الدبلوم وكشف الدرجات إلى اللغة المطلوبة مع شهادة دقة موقعة، وتشترطها وزارة التربية والتعليم لمعادلة الشهادات وأصحاب العمل لطلبات تأشيرة العمل.",
+    "description": {
+      "en": "Certified legal translation of Egyptian Standard Birth Certificate (105 AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة ميلاد مصرية (عاديه) (105 درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
     },
-    basePrice: 45,
-    avgTurnaroundHours: 24,
-    requiredUploads: [
-      { key: "degree", label: { en: "Degree Certificate", ar: "الشهادة الجامعية" } },
-      { key: "transcript", label: { en: "Academic Transcript", ar: "كشف الدرجات" } },
-    ],
-    relatedArticleSlug: "degree-certificate-attestation-dubai",
+    "definitionBlock": {
+      "en": "Certified translation of Egyptian Standard Birth Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (105 AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة ميلاد مصرية (عاديه) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (105 درهم)."
+    },
+    "basePrice": 105,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Egyptian Standard Birth Certificate (PDF/Image)",
+          "ar": "شهادة ميلاد مصرية (عاديه) (PDF أو صورة)"
+        }
+      }
+    ]
   },
   {
-    slug: "commercial-register-moa",
-    category: "COMMERCIAL",
-    name: { en: "Commercial Register / MOA", ar: "السجل التجاري / عقد التأسيس" },
-    description: {
-      en: "Certified translation of commercial registers, trade licenses, and Memorandums of Association for company formation and banking.",
-      ar: "ترجمة معتمدة للسجلات التجارية والرخص التجارية وعقود التأسيس لتأسيس الشركات والمعاملات المصرفية.",
+    "slug": "syrian-birth-certificate",
+    "category": "CIVIL_REGISTRY",
+    "name": {
+      "en": "Syrian Birth Certificate",
+      "ar": "شهادة ميلاد سورية"
     },
-    definitionBlock: {
-      en: "A certified commercial register translation renders trade licenses, Memorandums of Association, and company registration certificates into the target language, required by banks, the Ministry of Economy, and free-zone authorities for corporate formation and compliance.",
-      ar: "الترجمة المعتمدة للسجل التجاري تنقل الرخص التجارية وعقود التأسيس وشهادات تسجيل الشركات إلى اللغة المطلوبة، وتشترطها البنوك ووزارة الاقتصاد وسلطات المناطق الحرة لتأسيس الشركات والامتثال.",
+    "description": {
+      "en": "Certified legal translation of Syrian Birth Certificate (105 AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة ميلاد سورية (105 درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
     },
-    basePrice: 60,
-    avgTurnaroundHours: 24,
-    requiredUploads: [{ key: "source_document", label: { en: "Commercial Register / MOA (PDF)", ar: "السجل التجاري / عقد التأسيس (PDF)" } }],
-    relatedArticleSlug: "moa-commercial-documents-attestation-translation-dubai",
+    "definitionBlock": {
+      "en": "Certified translation of Syrian Birth Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (105 AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة ميلاد سورية بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (105 درهم)."
+    },
+    "basePrice": 105,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Syrian Birth Certificate (PDF/Image)",
+          "ar": "شهادة ميلاد سورية (PDF أو صورة)"
+        }
+      }
+    ]
   },
   {
-    slug: "power-of-attorney",
-    category: "LEGAL",
-    name: { en: "Power of Attorney", ar: "الوكالة القانونية" },
-    description: {
-      en: "Certified translation of general and special powers of attorney for notarization and cross-border legal use.",
-      ar: "ترجمة معتمدة للوكالات القانونية العامة والخاصة للتوثيق والاستخدام القانوني عبر الحدود.",
+    "slug": "jordanian-foreign-birth-certificate",
+    "category": "CIVIL_REGISTRY",
+    "name": {
+      "en": "Jordanian & Foreign Birth Certificate",
+      "ar": "شهادة ميلاد أردنية / جنسيات أخرى"
     },
-    definitionBlock: {
-      en: "A certified power of attorney translation renders the granted legal authorities and conditions into the target language with full legal precision, required by the Notary Public and Ministry of Justice for domestic execution or international legalization.",
-      ar: "الترجمة المعتمدة للوكالة القانونية تنقل الصلاحيات والشروط الممنوحة إلى اللغة المطلوبة بدقة قانونية كاملة، ويشترطها الكاتب العدل ووزارة العدل للتنفيذ المحلي أو التصديق الدولي.",
+    "description": {
+      "en": "Certified legal translation of Jordanian & Foreign Birth Certificate (105 AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة ميلاد أردنية / جنسيات أخرى (105 درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
     },
-    basePrice: 50,
-    avgTurnaroundHours: 24,
-    requiredUploads: [{ key: "source_document", label: { en: "Power of Attorney (PDF)", ar: "الوكالة القانونية (PDF)" } }],
+    "definitionBlock": {
+      "en": "Certified translation of Jordanian & Foreign Birth Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (105 AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة ميلاد أردنية / جنسيات أخرى بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (105 درهم)."
+    },
+    "basePrice": 105,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Jordanian & Foreign Birth Certificate (PDF/Image)",
+          "ar": "شهادة ميلاد أردنية / جنسيات أخرى (PDF أو صورة)"
+        }
+      }
+    ]
   },
   {
-    slug: "court-judgment",
-    category: "LEGAL",
-    name: { en: "Court Judgment / Arbitral Award", ar: "الحكم القضائي / قرار التحكيم" },
-    description: {
-      en: "Certified translation of court judgments and arbitral awards for enforcement or international recognition.",
-      ar: "ترجمة معتمدة للأحكام القضائية وقرارات التحكيم لأغراض التنفيذ أو الاعتراف الدولي.",
+    "slug": "death-certificate",
+    "category": "CIVIL_REGISTRY",
+    "name": {
+      "en": "Death Certificate (UAE / Foreign)",
+      "ar": "شهادة وفاة (إماراتية أو أجنبية)"
     },
-    definitionBlock: {
-      en: "A certified court judgment translation renders a judicial ruling or arbitral award into the target language with full legal and technical precision, required for enforcement (executory formula) before local execution judges or recognition before foreign courts.",
-      ar: "الترجمة المعتمدة للحكم القضائي تنقل الحكم أو قرار التحكيم إلى اللغة المطلوبة بدقة قانونية وفنية كاملة، وتُطلب لأغراض التنفيذ أمام قضاة التنفيذ المحليين أو الاعتراف أمام المحاكم الأجنبية.",
+    "description": {
+      "en": "Certified legal translation of Death Certificate (UAE / Foreign) (60 AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة وفاة (إماراتية أو أجنبية) (60 درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
     },
-    basePrice: 80,
-    avgTurnaroundHours: 48,
-    requiredUploads: [{ key: "source_document", label: { en: "Judgment / Award (PDF)", ar: "الحكم / القرار (PDF)" } }],
-    relatedArticleSlug: "certified-translation-statements-of-claim-court-judgments-dubai",
+    "definitionBlock": {
+      "en": "Certified translation of Death Certificate (UAE / Foreign) is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (60 AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة وفاة (إماراتية أو أجنبية) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (60 درهم)."
+    },
+    "basePrice": 60,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Death Certificate (UAE / Foreign) (PDF/Image)",
+          "ar": "شهادة وفاة (إماراتية أو أجنبية) (PDF أو صورة)"
+        }
+      }
+    ]
   },
   {
-    slug: "passport-national-id",
-    category: "IDENTITY",
-    name: { en: "Passport / National ID", ar: "جواز السفر / بطاقة الهوية" },
-    description: {
-      en: "Certified translation of passports and national ID cards for visa, banking, and residency applications.",
-      ar: "ترجمة معتمدة لجوازات السفر وبطاقات الهوية لطلبات التأشيرة والمعاملات المصرفية والإقامة.",
+    "slug": "marriage-certificate",
+    "category": "CIVIL_REGISTRY",
+    "name": {
+      "en": "Dubai Courts Marriage Certificate",
+      "ar": "عقد زواج صادر من محاكم دبي"
     },
-    definitionBlock: {
-      en: "A certified passport or national ID translation renders all printed data fields into the target language with exact name-spelling matching, required by banks, embassies, and government authorities to verify identity on official filings.",
-      ar: "الترجمة المعتمدة لجواز السفر أو بطاقة الهوية تنقل كافة الحقول المطبوعة إلى اللغة المطلوبة مع تطابق دقيق لتهجئة الاسم، وتشترطها البنوك والسفارات والجهات الحكومية للتحقق من الهوية في المعاملات الرسمية.",
+    "description": {
+      "en": "Certified legal translation of Dubai Courts Marriage Certificate (60 AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ عقد زواج صادر من محاكم دبي (60 درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
     },
-    basePrice: 25,
-    avgTurnaroundHours: 12,
-    requiredUploads: [{ key: "source_document", label: { en: "Passport / ID (PDF/Image)", ar: "جواز السفر / الهوية (PDF أو صورة)" } }],
+    "definitionBlock": {
+      "en": "Certified translation of Dubai Courts Marriage Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (60 AED).",
+      "ar": "تتم الترجمة المعتمدة لـ عقد زواج صادر من محاكم دبي بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (60 درهم)."
+    },
+    "basePrice": 60,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Dubai Courts Marriage Certificate (PDF/Image)",
+          "ar": "عقد زواج صادر من محاكم دبي (PDF أو صورة)"
+        }
+      }
+    ]
   },
   {
-    slug: "medical-report",
-    category: "MEDICAL",
-    name: { en: "Medical Report", ar: "التقرير الطبي" },
-    description: {
-      en: "Certified translation of medical reports and clinical records for insurance, immigration, and legal evidence.",
-      ar: "ترجمة معتمدة للتقارير الطبية والسجلات السريرية للتأمين والهجرة والأدلة القانونية.",
+    "slug": "sharjah-marriage-certificate",
+    "category": "CIVIL_REGISTRY",
+    "name": {
+      "en": "Sharjah Marriage Certificate",
+      "ar": "عقد زواج صادر من الشارقة"
     },
-    definitionBlock: {
-      en: "A certified medical report translation renders clinical findings, diagnoses, and treatment records into the target language with precise medical terminology, required by insurers, immigration authorities, and courts accepting medical evidence.",
-      ar: "الترجمة المعتمدة للتقرير الطبي تنقل النتائج السريرية والتشخيصات وسجلات العلاج إلى اللغة المطلوبة بمصطلحات طبية دقيقة، وتشترطها شركات التأمين وسلطات الهجرة والمحاكم التي تقبل الأدلة الطبية.",
+    "description": {
+      "en": "Certified legal translation of Sharjah Marriage Certificate (60 AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ عقد زواج صادر من الشارقة (60 درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
     },
-    basePrice: 40,
-    avgTurnaroundHours: 24,
-    requiredUploads: [{ key: "source_document", label: { en: "Medical Report (PDF)", ar: "التقرير الطبي (PDF)" } }],
-    relatedArticleSlug: "medical-pharmaceutical-clinical-translation-dubai",
+    "definitionBlock": {
+      "en": "Certified translation of Sharjah Marriage Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (60 AED).",
+      "ar": "تتم الترجمة المعتمدة لـ عقد زواج صادر من الشارقة بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (60 درهم)."
+    },
+    "basePrice": 60,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Sharjah Marriage Certificate (PDF/Image)",
+          "ar": "عقد زواج صادر من الشارقة (PDF أو صورة)"
+        }
+      }
+    ]
   },
+  {
+    "slug": "egyptian-digital-marriage-certificate",
+    "category": "CIVIL_REGISTRY",
+    "name": {
+      "en": "Egyptian Digital Marriage Certificate",
+      "ar": "عقد زواج مصري (مميكن)"
+    },
+    "description": {
+      "en": "Certified legal translation of Egyptian Digital Marriage Certificate (50 AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ عقد زواج مصري (مميكن) (50 درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Egyptian Digital Marriage Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (50 AED).",
+      "ar": "تتم الترجمة المعتمدة لـ عقد زواج مصري (مميكن) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (50 درهم)."
+    },
+    "basePrice": 50,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Egyptian Digital Marriage Certificate (PDF/Image)",
+          "ar": "عقد زواج مصري (مميكن) (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "egyptian-standard-marriage-certificate",
+    "category": "CIVIL_REGISTRY",
+    "name": {
+      "en": "Egyptian Standard Marriage Certificate",
+      "ar": "عقد زواج مصري (عادي)"
+    },
+    "description": {
+      "en": "Certified legal translation of Egyptian Standard Marriage Certificate (105 AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ عقد زواج مصري (عادي) (105 درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Egyptian Standard Marriage Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (105 AED).",
+      "ar": "تتم الترجمة المعتمدة لـ عقد زواج مصري (عادي) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (105 درهم)."
+    },
+    "basePrice": 105,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Egyptian Standard Marriage Certificate (PDF/Image)",
+          "ar": "عقد زواج مصري (عادي) (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "syrian-marriage-certificate",
+    "category": "CIVIL_REGISTRY",
+    "name": {
+      "en": "Syrian Marriage Certificate",
+      "ar": "عقد زواج سوري"
+    },
+    "description": {
+      "en": "Certified legal translation of Syrian Marriage Certificate (105 AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ عقد زواج سوري (105 درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Syrian Marriage Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (105 AED).",
+      "ar": "تتم الترجمة المعتمدة لـ عقد زواج سوري بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (105 درهم)."
+    },
+    "basePrice": 105,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Syrian Marriage Certificate (PDF/Image)",
+          "ar": "عقد زواج سوري (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "divorce-certificate",
+    "category": "CIVIL_REGISTRY",
+    "name": {
+      "en": "Divorce Certificate / Decree",
+      "ar": "اشهاد طلاق / وثيقة طلاق"
+    },
+    "description": {
+      "en": "Certified legal translation of Divorce Certificate / Decree (40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ اشهاد طلاق / وثيقة طلاق (40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Divorce Certificate / Decree is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ اشهاد طلاق / وثيقة طلاق بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Divorce Certificate / Decree (PDF/Image)",
+          "ar": "اشهاد طلاق / وثيقة طلاق (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "dubai-ejari-tenancy-contract",
+    "category": "LEGAL",
+    "name": {
+      "en": "Dubai Ejari Tenancy Contract",
+      "ar": "عقد إيجار دبي (إيجاري / Ejari)"
+    },
+    "description": {
+      "en": "Certified legal translation of Dubai Ejari Tenancy Contract (40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ عقد إيجار دبي (إيجاري / Ejari) (40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Dubai Ejari Tenancy Contract is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ عقد إيجار دبي (إيجاري / Ejari) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Dubai Ejari Tenancy Contract (PDF/Image)",
+          "ar": "عقد إيجار دبي (إيجاري / Ejari) (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "sharjah-tenancy-contract",
+    "category": "LEGAL",
+    "name": {
+      "en": "Sharjah Tenancy Contract",
+      "ar": "عقد إيجار الشارقة"
+    },
+    "description": {
+      "en": "Certified legal translation of Sharjah Tenancy Contract (40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ عقد إيجار الشارقة (40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Sharjah Tenancy Contract is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ عقد إيجار الشارقة بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Sharjah Tenancy Contract (PDF/Image)",
+          "ar": "عقد إيجار الشارقة (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "uae-tenancy-contract",
+    "category": "LEGAL",
+    "name": {
+      "en": "Ajman & UAE Tenancy Contract",
+      "ar": "عقد إيجار عجمان / باقي الإمارات"
+    },
+    "description": {
+      "en": "Certified legal translation of Ajman & UAE Tenancy Contract (40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ عقد إيجار عجمان / باقي الإمارات (40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Ajman & UAE Tenancy Contract is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ عقد إيجار عجمان / باقي الإمارات بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Ajman & UAE Tenancy Contract (PDF/Image)",
+          "ar": "عقد إيجار عجمان / باقي الإمارات (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "property-title-deed",
+    "category": "LEGAL",
+    "name": {
+      "en": "Property Title Deed",
+      "ar": "سند ملكية عقار (Title Deed)"
+    },
+    "description": {
+      "en": "Certified legal translation of Property Title Deed (60 AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ سند ملكية عقار (Title Deed) (60 درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Property Title Deed is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (60 AED).",
+      "ar": "تتم الترجمة المعتمدة لـ سند ملكية عقار (Title Deed) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (60 درهم)."
+    },
+    "basePrice": 60,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Property Title Deed (PDF/Image)",
+          "ar": "سند ملكية عقار (Title Deed) (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "site-plan-certificate",
+    "category": "LEGAL",
+    "name": {
+      "en": "Site Plan / Real Estate Certificate",
+      "ar": "شهادة الاستمارة العقارية / المخطط"
+    },
+    "description": {
+      "en": "Certified legal translation of Site Plan / Real Estate Certificate (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة الاستمارة العقارية / المخطط (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Site Plan / Real Estate Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة الاستمارة العقارية / المخطط بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Site Plan / Real Estate Certificate (PDF/Image)",
+          "ar": "شهادة الاستمارة العقارية / المخطط (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "dubai-ded-trade-license",
+    "category": "COMMERCIAL",
+    "name": {
+      "en": "Dubai DED Trade License",
+      "ar": "رخصة تجارية صادرة من دبي (DED)"
+    },
+    "description": {
+      "en": "Certified legal translation of Dubai DED Trade License (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ رخصة تجارية صادرة من دبي (DED) (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Dubai DED Trade License is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ رخصة تجارية صادرة من دبي (DED) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Dubai DED Trade License (PDF/Image)",
+          "ar": "رخصة تجارية صادرة من دبي (DED) (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "free-zone-trade-license",
+    "category": "COMMERCIAL",
+    "name": {
+      "en": "Free Zone Trade License",
+      "ar": "رخصة تجارية منطقة حرة (JAFZA / DAFZA / RAKEZ)"
+    },
+    "description": {
+      "en": "Certified legal translation of Free Zone Trade License (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ رخصة تجارية منطقة حرة (JAFZA / DAFZA / RAKEZ) (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Free Zone Trade License is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ رخصة تجارية منطقة حرة (JAFZA / DAFZA / RAKEZ) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Free Zone Trade License (PDF/Image)",
+          "ar": "رخصة تجارية منطقة حرة (JAFZA / DAFZA / RAKEZ) (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "commercial-register-moa",
+    "category": "COMMERCIAL",
+    "name": {
+      "en": "Memorandum of Association (MOA)",
+      "ar": "عقد تأسيس شركة (MOA) - صفحة أولى / ملخص"
+    },
+    "description": {
+      "en": "Certified legal translation of Memorandum of Association (MOA) (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ عقد تأسيس شركة (MOA) - صفحة أولى / ملخص (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Memorandum of Association (MOA) is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ عقد تأسيس شركة (MOA) - صفحة أولى / ملخص بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Memorandum of Association (MOA) (PDF/Image)",
+          "ar": "عقد تأسيس شركة (MOA) - صفحة أولى / ملخص (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "commercial-register-certificate",
+    "category": "COMMERCIAL",
+    "name": {
+      "en": "Commercial Register Certificate",
+      "ar": "شهادة السجل التجاري"
+    },
+    "description": {
+      "en": "Certified legal translation of Commercial Register Certificate (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة السجل التجاري (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Commercial Register Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة السجل التجاري بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Commercial Register Certificate (PDF/Image)",
+          "ar": "شهادة السجل التجاري (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "business-activity-certificate",
+    "category": "COMMERCIAL",
+    "name": {
+      "en": "Business Activity License Certificate",
+      "ar": "شهادة استمرارية حيازة / رخصة نشاط"
+    },
+    "description": {
+      "en": "Certified legal translation of Business Activity License Certificate (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة استمرارية حيازة / رخصة نشاط (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Business Activity License Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة استمرارية حيازة / رخصة نشاط بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Business Activity License Certificate (PDF/Image)",
+          "ar": "شهادة استمرارية حيازة / رخصة نشاط (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "degree-certificate",
+    "category": "ACADEMIC",
+    "name": {
+      "en": "University Degree Certificate",
+      "ar": "شهادة التخرج الجامعية (إماراتية أو خارجية)"
+    },
+    "description": {
+      "en": "Certified legal translation of University Degree Certificate (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة التخرج الجامعية (إماراتية أو خارجية) (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of University Degree Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة التخرج الجامعية (إماراتية أو خارجية) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "University Degree Certificate (PDF/Image)",
+          "ar": "شهادة التخرج الجامعية (إماراتية أو خارجية) (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "academic-transcript",
+    "category": "ACADEMIC",
+    "name": {
+      "en": "Academic Transcript (Single Page)",
+      "ar": "كشف الدرجات الجامعي (صفحة واحدة)"
+    },
+    "description": {
+      "en": "Certified legal translation of Academic Transcript (Single Page) (50 AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ كشف الدرجات الجامعي (صفحة واحدة) (50 درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Academic Transcript (Single Page) is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (50 AED).",
+      "ar": "تتم الترجمة المعتمدة لـ كشف الدرجات الجامعي (صفحة واحدة) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (50 درهم)."
+    },
+    "basePrice": 50,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Academic Transcript (Single Page) (PDF/Image)",
+          "ar": "كشف الدرجات الجامعي (صفحة واحدة) (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "high-school-certificate",
+    "category": "ACADEMIC",
+    "name": {
+      "en": "High School Diploma / School Certificate",
+      "ar": "شهادة الثانوية العامة / المدرسية"
+    },
+    "description": {
+      "en": "Certified legal translation of High School Diploma / School Certificate (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة الثانوية العامة / المدرسية (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of High School Diploma / School Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة الثانوية العامة / المدرسية بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "High School Diploma / School Certificate (PDF/Image)",
+          "ar": "شهادة الثانوية العامة / المدرسية (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "vocational-diploma",
+    "category": "ACADEMIC",
+    "name": {
+      "en": "Vocational / Technical Diploma",
+      "ar": "شهادة الدبلوم المهني / الفني"
+    },
+    "description": {
+      "en": "Certified legal translation of Vocational / Technical Diploma (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة الدبلوم المهني / الفني (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Vocational / Technical Diploma is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة الدبلوم المهني / الفني بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Vocational / Technical Diploma (PDF/Image)",
+          "ar": "شهادة الدبلوم المهني / الفني (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "uae-police-clearance",
+    "category": "IDENTITY",
+    "name": {
+      "en": "UAE Police Clearance Certificate",
+      "ar": "شهادة حسن سير وسلوك (إماراتية)"
+    },
+    "description": {
+      "en": "Certified legal translation of UAE Police Clearance Certificate (50 AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة حسن سير وسلوك (إماراتية) (50 درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of UAE Police Clearance Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (50 AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة حسن سير وسلوك (إماراتية) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (50 درهم)."
+    },
+    "basePrice": 50,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "UAE Police Clearance Certificate (PDF/Image)",
+          "ar": "شهادة حسن سير وسلوك (إماراتية) (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "foreign-criminal-record",
+    "category": "IDENTITY",
+    "name": {
+      "en": "Foreign Criminal Record Certificate",
+      "ar": "شهادة بحث حالة جنائية (خارجية)"
+    },
+    "description": {
+      "en": "Certified legal translation of Foreign Criminal Record Certificate (40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة بحث حالة جنائية (خارجية) (40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Foreign Criminal Record Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة بحث حالة جنائية (خارجية) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Foreign Criminal Record Certificate (PDF/Image)",
+          "ar": "شهادة بحث حالة جنائية (خارجية) (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "driving-license",
+    "category": "IDENTITY",
+    "name": {
+      "en": "Driving License (UAE / Foreign)",
+      "ar": "رخصة قيادة إماراتية / أجنبية"
+    },
+    "description": {
+      "en": "Certified legal translation of Driving License (UAE / Foreign) (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ رخصة قيادة إماراتية / أجنبية (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Driving License (UAE / Foreign) is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ رخصة قيادة إماراتية / أجنبية بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Driving License (UAE / Foreign) (PDF/Image)",
+          "ar": "رخصة قيادة إماراتية / أجنبية (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "passport-national-id",
+    "category": "IDENTITY",
+    "name": {
+      "en": "Passport / National ID Card",
+      "ar": "جواز سفر / بطاقة هوية"
+    },
+    "description": {
+      "en": "Certified legal translation of Passport / National ID Card (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ جواز سفر / بطاقة هوية (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Passport / National ID Card is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ جواز سفر / بطاقة هوية بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Passport / National ID Card (PDF/Image)",
+          "ar": "جواز سفر / بطاقة هوية (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "bank-statement",
+    "category": "COMMERCIAL",
+    "name": {
+      "en": "Bank Account Statement",
+      "ar": "كشف حساب بنكي (Bank Statement)"
+    },
+    "description": {
+      "en": "Certified legal translation of Bank Account Statement (20 - 30 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ كشف حساب بنكي (Bank Statement) (20 - 30 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Bank Account Statement is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (20 - 30 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ كشف حساب بنكي (Bank Statement) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (20 - 30 / صفحة درهم)."
+    },
+    "basePrice": 30,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Bank Account Statement (PDF/Image)",
+          "ar": "كشف حساب بنكي (Bank Statement) (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "bank-clearance-certificate",
+    "category": "COMMERCIAL",
+    "name": {
+      "en": "Bank Clearance / Debt Certificate",
+      "ar": "شهادة مديونية / براءة ذمة بنكية"
+    },
+    "description": {
+      "en": "Certified legal translation of Bank Clearance / Debt Certificate (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة مديونية / براءة ذمة بنكية (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Bank Clearance / Debt Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة مديونية / براءة ذمة بنكية بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Bank Clearance / Debt Certificate (PDF/Image)",
+          "ar": "شهادة مديونية / براءة ذمة بنكية (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "financial-audit-report",
+    "category": "COMMERCIAL",
+    "name": {
+      "en": "Financial Audit Report / Balance Sheet",
+      "ar": "ميزانية عمومية / تقرير تدقيق مالی"
+    },
+    "description": {
+      "en": "Certified legal translation of Financial Audit Report / Balance Sheet (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ ميزانية عمومية / تقرير تدقيق مالی (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Financial Audit Report / Balance Sheet is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ ميزانية عمومية / تقرير تدقيق مالی بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Financial Audit Report / Balance Sheet (PDF/Image)",
+          "ar": "ميزانية عمومية / تقرير تدقيق مالی (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "salary-certificate",
+    "category": "COMMERCIAL",
+    "name": {
+      "en": "Salary Certificate / Employment Letter",
+      "ar": "خطابات الراتب / شهادة استمرار عمل"
+    },
+    "description": {
+      "en": "Certified legal translation of Salary Certificate / Employment Letter (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ خطابات الراتب / شهادة استمرار عمل (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Salary Certificate / Employment Letter is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ خطابات الراتب / شهادة استمرار عمل بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Salary Certificate / Employment Letter (PDF/Image)",
+          "ar": "خطابات الراتب / شهادة استمرار عمل (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "experience-certificate",
+    "category": "COMMERCIAL",
+    "name": {
+      "en": "Experience Certificate",
+      "ar": "شهادة خبرة عملية"
+    },
+    "description": {
+      "en": "Certified legal translation of Experience Certificate (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة خبرة عملية (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Experience Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة خبرة عملية بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Experience Certificate (PDF/Image)",
+          "ar": "شهادة خبرة عملية (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "mohre-employment-contract",
+    "category": "COMMERCIAL",
+    "name": {
+      "en": "MOHRE Employment Contract",
+      "ar": "عقد عمل صادر من وزارة الموارد البشرية (MOHRE)"
+    },
+    "description": {
+      "en": "Certified legal translation of MOHRE Employment Contract (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ عقد عمل صادر من وزارة الموارد البشرية (MOHRE) (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of MOHRE Employment Contract is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ عقد عمل صادر من وزارة الموارد البشرية (MOHRE) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "MOHRE Employment Contract (PDF/Image)",
+          "ar": "عقد عمل صادر من وزارة الموارد البشرية (MOHRE) (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "statement-of-claim",
+    "category": "LEGAL",
+    "name": {
+      "en": "Statement of Claim / Lawsuit Petition",
+      "ar": "صحيفة دعوى / لائحة دعوى قضائية"
+    },
+    "description": {
+      "en": "Certified legal translation of Statement of Claim / Lawsuit Petition (20 - 30 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ صحيفة دعوى / لائحة دعوى قضائية (20 - 30 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Statement of Claim / Lawsuit Petition is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (20 - 30 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ صحيفة دعوى / لائحة دعوى قضائية بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (20 - 30 / صفحة درهم)."
+    },
+    "basePrice": 30,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Statement of Claim / Lawsuit Petition (PDF/Image)",
+          "ar": "صحيفة دعوى / لائحة دعوى قضائية (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "court-judgment",
+    "category": "LEGAL",
+    "name": {
+      "en": "Court Judgment / Court Ruling",
+      "ar": "حكم محكمة ابتدائي / استئناف / تمييز"
+    },
+    "description": {
+      "en": "Certified legal translation of Court Judgment / Court Ruling (20 - 30 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ حكم محكمة ابتدائي / استئناف / تمييز (20 - 30 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Court Judgment / Court Ruling is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (20 - 30 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ حكم محكمة ابتدائي / استئناف / تمييز بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (20 - 30 / صفحة درهم)."
+    },
+    "basePrice": 30,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Court Judgment / Court Ruling (PDF/Image)",
+          "ar": "حكم محكمة ابتدائي / استئناف / تمييز (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "defense-memorandum",
+    "category": "LEGAL",
+    "name": {
+      "en": "Defense Memorandum / Written Submissions",
+      "ar": "مذكرة دفاع / مذكرة جوابية"
+    },
+    "description": {
+      "en": "Certified legal translation of Defense Memorandum / Written Submissions (20 - 30 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ مذكرة دفاع / مذكرة جوابية (20 - 30 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Defense Memorandum / Written Submissions is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (20 - 30 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ مذكرة دفاع / مذكرة جوابية بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (20 - 30 / صفحة درهم)."
+    },
+    "basePrice": 30,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Defense Memorandum / Written Submissions (PDF/Image)",
+          "ar": "مذكرة دفاع / مذكرة جوابية (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "power-of-attorney",
+    "category": "LEGAL",
+    "name": {
+      "en": "Power of Attorney (General / Special)",
+      "ar": "وكالة عامة / وكالة خاصة (POA)"
+    },
+    "description": {
+      "en": "Certified legal translation of Power of Attorney (General / Special) (20 - 30 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ وكالة عامة / وكالة خاصة (POA) (20 - 30 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Power of Attorney (General / Special) is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (20 - 30 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ وكالة عامة / وكالة خاصة (POA) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (20 - 30 / صفحة درهم)."
+    },
+    "basePrice": 30,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Power of Attorney (General / Special) (PDF/Image)",
+          "ar": "وكالة عامة / وكالة خاصة (POA) (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "official-declaration",
+    "category": "LEGAL",
+    "name": {
+      "en": "Official Declaration / Undertaking",
+      "ar": "إقرار / تعهد رسمي"
+    },
+    "description": {
+      "en": "Certified legal translation of Official Declaration / Undertaking (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ إقرار / تعهد رسمي (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Official Declaration / Undertaking is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ إقرار / تعهد رسمي بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Official Declaration / Undertaking (PDF/Image)",
+          "ar": "إقرار / تعهد رسمي (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "legal-notice",
+    "category": "LEGAL",
+    "name": {
+      "en": "Legal Notice / Judicial Warning",
+      "ar": "إنذار عدلي / إخطار قانوني"
+    },
+    "description": {
+      "en": "Certified legal translation of Legal Notice / Judicial Warning (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ إنذار عدلي / إخطار قانوني (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Legal Notice / Judicial Warning is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ إنذار عدلي / إخطار قانوني بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Legal Notice / Judicial Warning (PDF/Image)",
+          "ar": "إنذار عدلي / إخطار قانوني (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "medical-report",
+    "category": "MEDICAL",
+    "name": {
+      "en": "DHA Medical Report",
+      "ar": "تقرير طبي صادر من هيئة الصحة بدبي (DHA)"
+    },
+    "description": {
+      "en": "Certified legal translation of DHA Medical Report (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ تقرير طبي صادر من هيئة الصحة بدبي (DHA) (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of DHA Medical Report is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ تقرير طبي صادر من هيئة الصحة بدبي (DHA) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "DHA Medical Report (PDF/Image)",
+          "ar": "تقرير طبي صادر من هيئة الصحة بدبي (DHA) (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "hospital-medical-report",
+    "category": "MEDICAL",
+    "name": {
+      "en": "Hospital Medical Report",
+      "ar": "تقرير طبي صادر من مستشفى إماراتي / خارجي"
+    },
+    "description": {
+      "en": "Certified legal translation of Hospital Medical Report (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ تقرير طبي صادر من مستشفى إماراتي / خارجي (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Hospital Medical Report is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ تقرير طبي صادر من مستشفى إماراتي / خارجي بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Hospital Medical Report (PDF/Image)",
+          "ar": "تقرير طبي صادر من مستشفى إماراتي / خارجي (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "medical-fitness-report",
+    "category": "MEDICAL",
+    "name": {
+      "en": "Medical Fitness Report (Visa/Work)",
+      "ar": "تقرير لياقة طبية لإقامة / عمل"
+    },
+    "description": {
+      "en": "Certified legal translation of Medical Fitness Report (Visa/Work) (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ تقرير لياقة طبية لإقامة / عمل (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Medical Fitness Report (Visa/Work) is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ تقرير لياقة طبية لإقامة / عمل بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Medical Fitness Report (Visa/Work) (PDF/Image)",
+          "ar": "تقرير لياقة طبية لإقامة / عمل (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "vaccination-certificate",
+    "category": "MEDICAL",
+    "name": {
+      "en": "Vaccination Certificate / Health Card",
+      "ar": "شهادة تطعيمات / دفتر صحي"
+    },
+    "description": {
+      "en": "Certified legal translation of Vaccination Certificate / Health Card (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة تطعيمات / دفتر صحي (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Vaccination Certificate / Health Card is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة تطعيمات / دفتر صحي بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Vaccination Certificate / Health Card (PDF/Image)",
+          "ar": "شهادة تطعيمات / دفتر صحي (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "medical-invoices",
+    "category": "MEDICAL",
+    "name": {
+      "en": "Medical Invoices / Hospital Receipts",
+      "ar": "فاتورة علاج / إيصالات مستشفى"
+    },
+    "description": {
+      "en": "Certified legal translation of Medical Invoices / Hospital Receipts (20 - 30 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ فاتورة علاج / إيصالات مستشفى (20 - 30 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Medical Invoices / Hospital Receipts is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (20 - 30 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ فاتورة علاج / إيصالات مستشفى بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (20 - 30 / صفحة درهم)."
+    },
+    "basePrice": 30,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Medical Invoices / Hospital Receipts (PDF/Image)",
+          "ar": "فاتورة علاج / إيصالات مستشفى (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "certificate-of-origin",
+    "category": "COMMERCIAL",
+    "name": {
+      "en": "Certificate of Origin / Bill of Lading",
+      "ar": "شهادة منشأ / بوليصة شحن (Bill of Lading)"
+    },
+    "description": {
+      "en": "Certified legal translation of Certificate of Origin / Bill of Lading (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة منشأ / بوليصة شحن (Bill of Lading) (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Certificate of Origin / Bill of Lading is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة منشأ / بوليصة شحن (Bill of Lading) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Certificate of Origin / Bill of Lading (PDF/Image)",
+          "ar": "شهادة منشأ / بوليصة شحن (Bill of Lading) (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "customs-declaration-invoice",
+    "category": "COMMERCIAL",
+    "name": {
+      "en": "Customs Declaration / Commercial Invoice",
+      "ar": "بيان جمركي / الفاتورة التجارية"
+    },
+    "description": {
+      "en": "Certified legal translation of Customs Declaration / Commercial Invoice (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ بيان جمركي / الفاتورة التجارية (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Customs Declaration / Commercial Invoice is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ بيان جمركي / الفاتورة التجارية بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Customs Declaration / Commercial Invoice (PDF/Image)",
+          "ar": "بيان جمركي / الفاتورة التجارية (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "certificate-of-conformity",
+    "category": "LEGAL",
+    "name": {
+      "en": "Certificate of Conformity / Quality Test",
+      "ar": "شهادة مطابقة / فحص جودة"
+    },
+    "description": {
+      "en": "Certified legal translation of Certificate of Conformity / Quality Test (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة مطابقة / فحص جودة (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Certificate of Conformity / Quality Test is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة مطابقة / فحص جودة بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Certificate of Conformity / Quality Test (PDF/Image)",
+          "ar": "شهادة مطابقة / فحص جودة (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "technical-manual",
+    "category": "LEGAL",
+    "name": {
+      "en": "Technical Manual / Operating Guide",
+      "ar": "كتالوج فني / دليل تشغيل"
+    },
+    "description": {
+      "en": "Certified legal translation of Technical Manual / Operating Guide (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ كتالوج فني / دليل تشغيل (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Technical Manual / Operating Guide is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ كتالوج فني / دليل تشغيل بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Technical Manual / Operating Guide (PDF/Image)",
+          "ar": "كتالوج فني / دليل تشغيل (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "trademark-patent-certificate",
+    "category": "COMMERCIAL",
+    "name": {
+      "en": "Trademark Registration / Patent Certificate",
+      "ar": "شهادة تسجيل علامة تجارية / براءة اختراع"
+    },
+    "description": {
+      "en": "Certified legal translation of Trademark Registration / Patent Certificate (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة تسجيل علامة تجارية / براءة اختراع (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Trademark Registration / Patent Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة تسجيل علامة تجارية / براءة اختراع بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Trademark Registration / Patent Certificate (PDF/Image)",
+          "ar": "شهادة تسجيل علامة تجارية / براءة اختراع (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "share-certificate",
+    "category": "COMMERCIAL",
+    "name": {
+      "en": "Share Certificate / Stock Ownership",
+      "ar": "شهادة إسهام / أسهم شركة"
+    },
+    "description": {
+      "en": "Certified legal translation of Share Certificate / Stock Ownership (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة إسهام / أسهم شركة (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Share Certificate / Stock Ownership is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة إسهام / أسهم شركة بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Share Certificate / Stock Ownership (PDF/Image)",
+          "ar": "شهادة إسهام / أسهم شركة (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "board-resolution",
+    "category": "COMMERCIAL",
+    "name": {
+      "en": "Board of Directors Resolution",
+      "ar": "قرار مجلس إدارة (Board Resolution)"
+    },
+    "description": {
+      "en": "Certified legal translation of Board of Directors Resolution (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ قرار مجلس إدارة (Board Resolution) (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Board of Directors Resolution is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ قرار مجلس إدارة (Board Resolution) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Board of Directors Resolution (PDF/Image)",
+          "ar": "قرار مجلس إدارة (Board Resolution) (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "recommendation-letter",
+    "category": "ACADEMIC",
+    "name": {
+      "en": "Academic / Professional Recommendation Letter",
+      "ar": "خطابات توصية أركان / توصية أكاديمية"
+    },
+    "description": {
+      "en": "Certified legal translation of Academic / Professional Recommendation Letter (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ خطابات توصية أركان / توصية أكاديمية (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Academic / Professional Recommendation Letter is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ خطابات توصية أركان / توصية أكاديمية بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Academic / Professional Recommendation Letter (PDF/Image)",
+          "ar": "خطابات توصية أركان / توصية أكاديمية (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "land-grant-certificate",
+    "category": "LEGAL",
+    "name": {
+      "en": "Land Grant / Allotment Certificate",
+      "ar": "شهادة تخصيص أراضي / منح"
+    },
+    "description": {
+      "en": "Certified legal translation of Land Grant / Allotment Certificate (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة تخصيص أراضي / منح (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Land Grant / Allotment Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة تخصيص أراضي / منح بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Land Grant / Allotment Certificate (PDF/Image)",
+          "ar": "شهادة تخصيص أراضي / منح (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "building-completion-certificate",
+    "category": "LEGAL",
+    "name": {
+      "en": "Building Completion / Excavation Certificate",
+      "ar": "شهادة إنجاز مبنى / حفر"
+    },
+    "description": {
+      "en": "Certified legal translation of Building Completion / Excavation Certificate (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة إنجاز مبنى / حفر (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Building Completion / Excavation Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة إنجاز مبنى / حفر بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Building Completion / Excavation Certificate (PDF/Image)",
+          "ar": "شهادة إنجاز مبنى / حفر (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "engineering-expert-report",
+    "category": "LEGAL",
+    "name": {
+      "en": "Engineering Expert Report / Property Valuation",
+      "ar": "تقرير خبرة هندسي / تقييم عقاري"
+    },
+    "description": {
+      "en": "Certified legal translation of Engineering Expert Report / Property Valuation (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ تقرير خبرة هندسي / تقييم عقاري (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Engineering Expert Report / Property Valuation is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ تقرير خبرة هندسي / تقييم عقاري بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Engineering Expert Report / Property Valuation (PDF/Image)",
+          "ar": "تقرير خبرة هندسي / تقييم عقاري (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "police-traffic-report",
+    "category": "IDENTITY",
+    "name": {
+      "en": "Police Traffic Accident Report",
+      "ar": "تقرير شرطة / حادث سير"
+    },
+    "description": {
+      "en": "Certified legal translation of Police Traffic Accident Report (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ تقرير شرطة / حادث سير (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Police Traffic Accident Report is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ تقرير شرطة / حادث سير بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Police Traffic Accident Report (PDF/Image)",
+          "ar": "تقرير شرطة / حادث سير (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "insurance-policy",
+    "category": "COMMERCIAL",
+    "name": {
+      "en": "Vehicle / Health Insurance Policy",
+      "ar": "وثيقة تأمين سيارات / صحي"
+    },
+    "description": {
+      "en": "Certified legal translation of Vehicle / Health Insurance Policy (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ وثيقة تأمين سيارات / صحي (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Vehicle / Health Insurance Policy is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ وثيقة تأمين سيارات / صحي بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Vehicle / Health Insurance Policy (PDF/Image)",
+          "ar": "وثيقة تأمين سيارات / صحي (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "legal-consultant-certificate",
+    "category": "LEGAL",
+    "name": {
+      "en": "Lawyers / Consultants Roll Certificate",
+      "ar": "شهادة قيد في جدول المحامين / الاستشاريين"
+    },
+    "description": {
+      "en": "Certified legal translation of Lawyers / Consultants Roll Certificate (30 - 40 / صفحة AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة قيد في جدول المحامين / الاستشاريين (30 - 40 / صفحة درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Lawyers / Consultants Roll Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (30 - 40 / صفحة AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة قيد في جدول المحامين / الاستشاريين بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (30 - 40 / صفحة درهم)."
+    },
+    "basePrice": 40,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Lawyers / Consultants Roll Certificate (PDF/Image)",
+          "ar": "شهادة قيد في جدول المحامين / الاستشاريين (PDF أو صورة)"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "vat-tax-certificate",
+    "category": "COMMERCIAL",
+    "name": {
+      "en": "Tax Registration / VAT Certificate",
+      "ar": "شهادة ضريبية / القيمة المضافة (VAT Certificate)"
+    },
+    "description": {
+      "en": "Certified legal translation of Tax Registration / VAT Certificate (50 AED) accepted by UAE ministries, courts, and international embassies.",
+      "ar": "ترجمة قانونية معتمدة لـ شهادة ضريبية / القيمة المضافة (VAT Certificate) (50 درهم) مقبولة لدى الوزارات والمحاكم الإماراتية والسفارات الدولية."
+    },
+    "definitionBlock": {
+      "en": "Certified translation of Tax Registration / VAT Certificate is performed by MOJ-licensed translators in compliance with UAE legal standards, complete with official stamp, seal, and certificate of accuracy (50 AED).",
+      "ar": "تتم الترجمة المعتمدة لـ شهادة ضريبية / القيمة المضافة (VAT Certificate) بواسطة مترجمين مرخصين من وزارة العدل الإماراتية وفق المعايير القانونية الرسمية مع الختم والشهادة المعتمدة (50 درهم)."
+    },
+    "basePrice": 50,
+    "avgTurnaroundHours": 24,
+    "requiredUploads": [
+      {
+        "key": "source_document",
+        "label": {
+          "en": "Tax Registration / VAT Certificate (PDF/Image)",
+          "ar": "شهادة ضريبية / القيمة المضافة (VAT Certificate) (PDF أو صورة)"
+        }
+      }
+    ]
+  }
 ];
 
 export const embassyRequirements: EmbassyRequirement[] = [

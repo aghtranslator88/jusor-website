@@ -54,7 +54,7 @@
     "checklistTitle": "Lista di controllo",
     "applicableAuthorities": "Accettato da",
     "getQuote": "Preventivo istantaneo",
-    "fromPrice": "A partire da ${price}",
+    "fromPrice": "A partire da {price} AED",
     "relatedReading": "Guida correlata",
     "backToHub": "Torna al centro di traduzione legale",
     "translatorPool": "Oltre {count} linguisti verificati",

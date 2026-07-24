@@ -54,7 +54,7 @@
     "checklistTitle": "Checklist",
     "applicableAuthorities": "Accepted By",
     "getQuote": "Get Instant Quote",
-    "fromPrice": "From ${price}",
+    "fromPrice": "From AED {price}",
     "relatedReading": "Related Guide",
     "backToHub": "Back to Legal Translation Hub",
     "translatorPool": "{count}+ vetted linguists",
