@@ -1,14 +1,13 @@
 "use client";
 
 // Client-only quote form using the local pricing calculator (src/lib/pricing.ts).
-// No live database is connected yet, so submission is captured locally and
-// shown as a success state with a generated reference — see the note in
-// InterpretationRequestForm.tsx for the broader pattern used across the site.
 import { useMemo, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, AlertTriangle } from "lucide-react";
 import { documentTypes, languagePairs } from "@/content/legal-translation";
 import { calculateQuotePrice, type ServiceTier, type TurnaroundSpeed } from "@/lib/pricing";
+import { submitQuoteRequest } from "@/app/actions/inquiries";
+import { primaryOffice } from "@/content/company";
 
 type Locale = "en" | "ar";
 
@@ -21,6 +20,7 @@ export function QuoteEstimatorForm() {
   const locale = useLocale() as Locale;
   const t = useTranslations("Quote");
   const ti = useTranslations("Interpretation");
+  const tf = useTranslations("Forms");
 
   const [documentSlug, setDocumentSlug] = useState(documentTypes[0]?.slug ?? "");
   const [pairSlug, setPairSlug] = useState(languagePairs[0]?.slug ?? "");
@@ -28,21 +28,40 @@ export function QuoteEstimatorForm() {
   const [turnaround, setTurnaround] = useState<TurnaroundSpeed>("STANDARD_24H");
   const [submitting, setSubmitting] = useState(false);
   const [reference, setReference] = useState<string | null>(null);
+  const [error, setError] = useState(false);
 
   const selectedDocument = documentTypes.find((d) => d.slug === documentSlug) ?? documentTypes[0];
+  const selectedPair = languagePairs.find((p) => p.slug === pairSlug) ?? languagePairs[0];
 
   const breakdown = useMemo(() => {
     if (!selectedDocument) return null;
     return calculateQuotePrice({ basePrice: selectedDocument.basePrice, tier, turnaround });
   }, [selectedDocument, tier, turnaround]);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
-    window.setTimeout(() => {
-      setSubmitting(false);
+    setError(false);
+
+    const fd = new FormData(e.currentTarget);
+    fd.set("documentType", selectedDocument?.name[locale] ?? selectedDocument?.name.en ?? documentSlug);
+    fd.set(
+      "languagePair",
+      selectedPair
+        ? `${selectedPair.sourceName[locale] ?? selectedPair.sourceName.en} → ${selectedPair.targetName[locale] ?? selectedPair.targetName.en}`
+        : pairSlug
+    );
+    fd.set("tier", tier);
+    fd.set("turnaround", turnaround);
+    if (breakdown) fd.set("estimatedTotal", `$${breakdown.total.toFixed(2)}`);
+
+    const result = await submitQuoteRequest(fd);
+    setSubmitting(false);
+    if (result.ok) {
       setReference(generateReference());
-    }, 500);
+    } else {
+      setError(true);
+    }
   }
 
   if (reference) {
