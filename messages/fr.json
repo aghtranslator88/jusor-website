@@ -196,6 +196,10 @@
     "formSuccessBody": "Merci de nous avoir contactés — notre équipe vous répondra dans l'heure ouvrable pendant les horaires de bureau.",
     "whatsapp": "WhatsApp"
   },
+  "Forms": {
+    "errorBody": "Une erreur s'est produite et nous n'avons pas pu envoyer votre demande. Veuillez réessayer, ou contactez-nous directement sur",
+    "errorWhatsapp": "WhatsApp"
+  },
   "Quote": {
     "title": "Obtenir un devis certifié",
     "subtitle": "Parlez-nous de votre document et obtenez une estimation instantanée — sans compte requis.",

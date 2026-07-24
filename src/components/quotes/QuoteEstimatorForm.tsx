@@ -83,6 +83,25 @@ export function QuoteEstimatorForm() {
 
   return (
     <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+      {error && (
+        <div className="flex items-start gap-3 rounded-lg border border-amber-200 bg-amber-50 p-4 lg:col-span-2">
+          <AlertTriangle className="mt-0.5 size-5 shrink-0 text-amber-600" aria-hidden />
+          <p className="text-body text-amber-800">
+            {tf("errorBody")}{" "}
+            <a href={primaryOffice.whatsappHref} target="_blank" rel="noopener noreferrer" className="font-semibold underline">
+              {tf("errorWhatsapp")}
+            </a>
+          </p>
+        </div>
+      )}
+      <input
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute -left-[9999px] h-0 w-0 opacity-0"
+      />
       <div className="rounded-xl border border-slate-200 bg-white p-6">
         <div className="space-y-4">
           <label className="block">

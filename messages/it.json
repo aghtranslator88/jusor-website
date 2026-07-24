@@ -196,6 +196,10 @@
     "formSuccessBody": "Grazie per averci contattato — il nostro team ti risponderà entro un'ora lavorativa durante l'orario d'ufficio.",
     "whatsapp": "WhatsApp"
   },
+  "Forms": {
+    "errorBody": "Si è verificato un errore e non siamo riusciti a inviare la tua richiesta. Riprova, oppure contattaci direttamente su",
+    "errorWhatsapp": "WhatsApp"
+  },
   "Quote": {
     "title": "Ottieni un preventivo certificato",
     "subtitle": "Parlaci del tuo documento e ottieni una stima istantanea del prezzo — nessun account richiesto.",

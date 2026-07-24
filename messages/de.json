@@ -196,6 +196,10 @@
     "formSuccessBody": "Danke für Ihre Nachricht — unser Team meldet sich innerhalb einer Geschäftsstunde während der Bürozeiten.",
     "whatsapp": "WhatsApp"
   },
+  "Forms": {
+    "errorBody": "Etwas ist schiefgelaufen und wir konnten Ihre Anfrage nicht senden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt über",
+    "errorWhatsapp": "WhatsApp"
+  },
   "Quote": {
     "title": "Beglaubigtes Angebot erhalten",
     "subtitle": "Erzählen Sie uns von Ihrem Dokument und erhalten Sie eine sofortige Preisschätzung — kein Konto erforderlich.",

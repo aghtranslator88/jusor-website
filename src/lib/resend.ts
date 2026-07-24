@@ -18,7 +18,7 @@ export function getResendClient(): Resend {
 // Default sender uses Resend's shared test domain, which works out of the
 // box with no DNS setup but can only deliver to the email address the
 // Resend account was created with. Once jusortrans.com is verified in the
-// Resend dashboard, set RESEND_FROM_EMAIL="JUSOR Website <noreply@jusortrans.com>"
-// in the environment to send to any recipient.
+// Resend dashboard, set EMAIL_FROM="JUSOR <no-reply@jusortrans.com>" in the
+// environment (see .env.example) to send to any recipient.
 export const RESEND_FROM_EMAIL =
-  process.env.RESEND_FROM_EMAIL ?? "JUSOR Website <onboarding@resend.dev>";
+  process.env.EMAIL_FROM ?? "JUSOR Website <onboarding@resend.dev>";

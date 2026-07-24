@@ -1,26 +1,32 @@
 "use client";
 
-// Client-only booking form. No live database is connected yet (see
-// docs/spec/02-api-server-actions.md — POST /api/v1/interpretation/request
-// is specced but not wired), so submission is captured locally and shown as
-// a success state rather than silently failing or pretending to persist.
 import { useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, AlertTriangle } from "lucide-react";
+import { submitInterpretationRequest } from "@/app/actions/inquiries";
+import { primaryOffice } from "@/content/company";
 
 export function InterpretationRequestForm({ modeName }: { modeName: string }) {
   const t = useTranslations("Interpretation");
+  const tf = useTranslations("Forms");
   const [venue, setVenue] = useState<"onsite" | "remote">("onsite");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
-    window.setTimeout(() => {
-      setSubmitting(false);
+    setError(false);
+    const fd = new FormData(e.currentTarget);
+    fd.set("venue", venue === "onsite" ? t("formVenueOnsite") : t("formVenueRemote"));
+    const result = await submitInterpretationRequest(fd);
+    setSubmitting(false);
+    if (result.ok) {
       setSubmitted(true);
-    }, 500);
+    } else {
+      setError(true);
+    }
   }
 
   if (submitted) {
@@ -44,6 +50,27 @@ export function InterpretationRequestForm({ modeName }: { modeName: string }) {
     <form onSubmit={handleSubmit} className="rounded-xl border border-slate-200 bg-white p-6">
       <h3 className="text-h3 font-semibold text-slate-900">{t("formTitle")}</h3>
       <input type="hidden" name="mode" value={modeName} />
+
+      {error && (
+        <div className="mt-4 flex items-start gap-3 rounded-lg border border-amber-200 bg-amber-50 p-4">
+          <AlertTriangle className="mt-0.5 size-5 shrink-0 text-amber-600" aria-hidden />
+          <p className="text-body text-amber-800">
+            {tf("errorBody")}{" "}
+            <a href={primaryOffice.whatsappHref} target="_blank" rel="noopener noreferrer" className="font-semibold underline">
+              {tf("errorWhatsapp")}
+            </a>
+          </p>
+        </div>
+      )}
+
+      <input
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute -left-[9999px] h-0 w-0 opacity-0"
+      />
 
       <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label className="block">

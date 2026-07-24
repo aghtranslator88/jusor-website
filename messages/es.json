@@ -196,6 +196,10 @@
     "formSuccessBody": "Gracias por contactarnos — nuestro equipo te responderá en una hora hábil dentro del horario de oficina.",
     "whatsapp": "WhatsApp"
   },
+  "Forms": {
+    "errorBody": "Algo salió mal y no pudimos enviar tu solicitud. Inténtalo de nuevo, o contáctanos directamente por",
+    "errorWhatsapp": "WhatsApp"
+  },
   "Quote": {
     "title": "Obtener un presupuesto certificado",
     "subtitle": "Cuéntanos sobre tu documento y obtén una estimación de precio instantánea — sin necesidad de cuenta.",
