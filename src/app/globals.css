@@ -144,9 +144,6 @@
 
   --animate-count-up: count-up 0.4s ease-out;
   --animate-ticker-scroll: ticker-scroll 32s linear infinite;
-  --animate-globe-spin: globe-spin 50s linear infinite;
-  --animate-globe-spin-slow: globe-spin 90s linear infinite reverse;
-  --animate-ray-pulse: ray-pulse 4.5s ease-in-out infinite;
   --animate-fade-up: fade-up 0.6s ease-out both;
 
   @keyframes count-up {
@@ -169,30 +166,6 @@
     }
   }
 
-  @keyframes globe-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes ray-pulse {
-    0%, 100% {
-      opacity: 0;
-      transform: scale(0.55);
-    }
-    45% {
-      opacity: 1;
-      transform: scale(1.05);
-    }
-    70% {
-      opacity: 0.35;
-      transform: scale(0.9);
-    }
-  }
-
   @keyframes fade-up {
     from {
       opacity: 0;
@@ -205,12 +178,10 @@
   }
 }
 
-/* Respect reduced-motion: freeze the decorative globe/ray hero animation on
- * the About page rather than force continuous motion on users who opted out. */
+/* Respect reduced-motion: freeze the count-up/fade-up entrance animations
+ * for users who opted out (the About hero's video/rays are handled
+ * separately via Tailwind's motion-reduce: variant, not this rule). */
 @media (prefers-reduced-motion: reduce) {
-  .animate-globe-spin,
-  .animate-globe-spin-slow,
-  .animate-ray-pulse,
   .animate-fade-up {
     animation: none !important;
   }

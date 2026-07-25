@@ -3,74 +3,49 @@
 // graphics rather than inserting stock placeholders"). Client photography
 // should replace each of these when available.
 
-// Decorative animated hero background: a slowly spinning wireframe globe
-// (world languages / global reach motif) with a handful of soft light
-// bursts glowing on and off at staggered points around it. Pure CSS/SVG —
-// no canvas or JS animation loop, so it costs nothing at runtime and is
-// safe for crawlers (purely decorative, aria-hidden). Animation is defined
-// in globals.css (--animate-globe-spin / --animate-ray-pulse) and freezes
-// automatically under prefers-reduced-motion.
-const RAYS = [
-  { top: "12%", left: "18%", size: 90, delay: "0s" },
-  { top: "62%", left: "8%", size: 70, delay: "1.4s" },
-  { top: "8%", left: "72%", size: 110, delay: "2.6s" },
-  { top: "68%", left: "78%", size: 80, delay: "0.7s" },
-  { top: "40%", left: "48%", size: 130, delay: "3.4s" },
-] as const;
-
-export function AnimatedGlobeHero() {
+// Decorative hero background: a short, muted, looping video of a rotating
+// Earth (free Pexels clip, self-hosted at public/videos/about-globe.mp4;
+// re-encoded down to a 426x240 rendition — ~2.3MB — since it only needs to
+// read at small size behind a dark overlay + text, not full quality).
+//
+// Performance/SEO notes:
+//  - No "use client" needed — autoplay/muted/loop/playsInline are plain
+//    HTML attributes, so this ships zero extra JS and stays a server
+//    component.
+//  - `poster` shows the existing home hero photo instantly, so there is no
+//    blank flash while the video buffers, and slow/blocked connections
+//    still get a real image instead of nothing.
+//  - `preload="metadata"` avoids eagerly downloading the full 2.3MB file
+//    before the browser even knows it's needed.
+//  - Purely decorative: `aria-hidden`, no controls, muted — doesn't affect
+//    SEO/GEO (the actual h1/paragraph text sitting on top is unaffected,
+//    still fully server-rendered and crawlable) and doesn't compete with
+//    the heading as the page's LCP element.
+//  - `motion-reduce:` swaps the moving video out for the static poster
+//    frame for users who've asked their OS/browser to reduce motion —
+//    continuous background motion can trigger real discomfort for some
+//    visitors, not just a preference.
+export function GlobeVideoBackground() {
   return (
-    <div className="absolute inset-0 overflow-hidden" aria-hidden>
-      {RAYS.map((ray, i) => (
-        <span
-          key={i}
-          className="animate-ray-pulse absolute rounded-full"
-          style={{
-            top: ray.top,
-            left: ray.left,
-            width: ray.size,
-            height: ray.size,
-            animationDelay: ray.delay,
-            background:
-              "radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(253,186,116,0.55) 35%, rgba(253,186,116,0) 70%)",
-            filter: "blur(2px)",
-            mixBlendMode: "screen",
-          }}
-        />
-      ))}
-
-      <svg
-        viewBox="0 0 400 400"
-        className="absolute start-1/2 top-1/2 h-[130%] w-[130%] -translate-x-1/2 -translate-y-1/2 opacity-[0.28] sm:h-[85%] sm:w-[85%]"
-      >
-        <defs>
-          <radialGradient id="globe-glow" cx="35%" cy="30%" r="70%">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
-          </radialGradient>
-        </defs>
-
-        <circle cx="200" cy="200" r="150" fill="url(#globe-glow)" />
-        <circle cx="200" cy="200" r="150" fill="none" stroke="white" strokeWidth="1.5" />
-
-        {/* Latitude rings — static */}
-        <ellipse cx="200" cy="200" rx="150" ry="55" fill="none" stroke="white" strokeWidth="1" />
-        <ellipse cx="200" cy="200" rx="150" ry="100" fill="none" stroke="white" strokeWidth="1" />
-
-        {/* Meridians + connection nodes — rotating group */}
-        <g className="animate-globe-spin" style={{ transformOrigin: "200px 200px" }}>
-          <ellipse cx="200" cy="200" rx="55" ry="150" fill="none" stroke="white" strokeWidth="1" />
-          <ellipse cx="200" cy="200" rx="100" ry="150" fill="none" stroke="white" strokeWidth="1" />
-          <line x1="200" y1="50" x2="200" y2="350" stroke="white" strokeWidth="1" />
-          {[
-            [200, 50], [305, 100], [345, 200], [305, 300],
-            [200, 350], [95, 300], [55, 200], [95, 100],
-          ].map(([x, y], i) => (
-            <circle key={i} cx={x} cy={y} r="4" fill="#fdba74" />
-          ))}
-        </g>
-      </svg>
-    </div>
+    <>
+      <video
+        className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+        src="/videos/about-globe.mp4"
+        poster="/images/hero/home-earth-lights.jpg"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden
+      />
+      {/* eslint-disable-next-line @next/next/no-img-element -- tiny decorative fallback shown only under prefers-reduced-motion, not worth next/image's overhead here */}
+      <img
+        src="/images/hero/home-earth-lights.jpg"
+        alt=""
+        className="absolute inset-0 hidden h-full w-full object-cover motion-reduce:block"
+      />
+    </>
   );
 }
 

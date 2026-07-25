@@ -9,8 +9,6 @@ export type InquiryResult = { ok: true } | { ok: false; error: string };
 // Honeypot: a hidden field real users never fill in. Any non-empty value
 // means a bot filled every input on the form — we pretend success and skip
 // sending, rather than telling the bot its submission was rejected.
-const honeypotSchema = z.string().optional();
-
 function isHoneypotTripped(value: FormDataEntryValue | null): boolean {
   return typeof value === "string" && value.trim().length > 0;
 }

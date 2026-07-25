@@ -21,7 +21,7 @@ import { TrustBar } from "@/components/about/TrustBar";
 import { ProcessStepper } from "@/components/about/ProcessStepper";
 import { CredentialBlock } from "@/components/about/CredentialBlock";
 import { AboutFAQ } from "@/components/about/AboutFAQ";
-import { AnimatedGlobeHero, SealIllustration, OfficeIllustration } from "@/components/about/AboutVisuals";
+import { GlobeVideoBackground, SealIllustration, OfficeIllustration } from "@/components/about/AboutVisuals";
 
 type Locale = "en" | "ar";
 
@@ -143,7 +143,7 @@ export default async function AboutPage({
 
       {/* 2.1 Hero */}
       <section className="relative overflow-hidden bg-primary-700 px-4 py-24 text-center md:px-8 md:py-32">
-        <AnimatedGlobeHero />
+        <GlobeVideoBackground />
         <div className="absolute inset-0 bg-gradient-to-br from-primary-900/90 via-primary-800/85 to-primary-700/80" />
         <div className="relative mx-auto max-w-3xl">
           <span className="inline-block rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-caption font-semibold uppercase tracking-wider text-primary-50">
