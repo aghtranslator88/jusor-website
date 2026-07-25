@@ -21,7 +21,7 @@ import { TrustBar } from "@/components/about/TrustBar";
 import { ProcessStepper } from "@/components/about/ProcessStepper";
 import { CredentialBlock } from "@/components/about/CredentialBlock";
 import { AboutFAQ } from "@/components/about/AboutFAQ";
-import { HeroPattern, SealIllustration, OfficeIllustration } from "@/components/about/AboutVisuals";
+import { AnimatedGlobeHero, SealIllustration, OfficeIllustration } from "@/components/about/AboutVisuals";
 
 type Locale = "en" | "ar";
 
@@ -142,28 +142,39 @@ export default async function AboutPage({
       />
 
       {/* 2.1 Hero */}
-      <section className="relative overflow-hidden bg-primary-700 px-4 py-20 text-center md:px-8 md:py-28">
-        <HeroPattern />
+      <section className="relative overflow-hidden bg-primary-700 px-4 py-24 text-center md:px-8 md:py-32">
+        <AnimatedGlobeHero />
         <div className="absolute inset-0 bg-gradient-to-br from-primary-900/90 via-primary-800/85 to-primary-700/80" />
         <div className="relative mx-auto max-w-3xl">
-          <h1 className="text-display-lg font-extrabold text-white">{aboutHero.h1[l] ?? aboutHero.h1.en}</h1>
+          <span className="inline-block rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-caption font-semibold uppercase tracking-wider text-primary-50">
+            {isAr ? "جسور" : "JUSOR"}
+          </span>
+          <h1 className="mt-5 text-display-lg font-extrabold text-white">{aboutHero.h1[l] ?? aboutHero.h1.en}</h1>
           <p className="mt-4 text-body-lg text-primary-50/90">{aboutHero.tagline[l] ?? aboutHero.tagline.en}</p>
           <TrustBar items={trustBarItems.map((item) => ({ icon: item.icon, label: item.label[l] ?? item.label.en! }))} />
         </div>
       </section>
 
       {/* 2.2 Vision */}
-      <section className="mx-auto max-w-3xl px-4 py-16 text-center md:px-8 md:py-20">
-        <h2 className="text-h2 font-bold text-slate-900">{isAr ? "الرؤية" : "Vision"}</h2>
-        <p data-answer-block className={`mt-5 text-body-lg text-slate-600 ${isAr ? "leading-[1.9]" : ""}`}>
-          {aboutVision[l] ?? aboutVision.en}
-        </p>
+      <section className="bg-slate-50 px-4 py-16 md:px-8 md:py-24">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="text-display-lg font-black leading-none text-primary-200" aria-hidden>
+            &ldquo;
+          </span>
+          <h2 className="-mt-6 text-h2 font-bold text-slate-900">{isAr ? "الرؤية" : "Vision"}</h2>
+          <p data-answer-block className={`mt-5 text-body-lg text-slate-600 ${isAr ? "leading-[1.9]" : ""}`}>
+            {aboutVision[l] ?? aboutVision.en}
+          </p>
+        </div>
       </section>
 
       {/* 2.3 Mission + credential visual */}
-      <section className="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-2 md:items-center md:px-8 md:py-20">
+      <section className="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-2 md:items-center md:px-8 md:py-24">
         <div>
-          <h2 className="text-h2 font-bold text-slate-900">{isAr ? "رسالتنا" : "Mission"}</h2>
+          <p className="text-caption font-semibold uppercase tracking-wider text-primary-600">
+            {isAr ? "من نحن" : "Who We Are"}
+          </p>
+          <h2 className="mt-2 text-h2 font-bold text-slate-900">{isAr ? "رسالتنا" : "Mission"}</h2>
           <div data-answer-block className={`mt-5 space-y-4 text-body-lg text-slate-600 ${isAr ? "leading-[1.9]" : ""}`}>
             {(aboutMission[l] ?? aboutMission.en!).split("\n\n").map((para) => (
               <p key={para}>{para}</p>
@@ -176,34 +187,36 @@ export default async function AboutPage({
       </section>
 
       {/* 3.3 Question-based headings + 3.4 definition pattern */}
-      <section className="mx-auto max-w-3xl space-y-10 px-4 py-16 md:px-8 md:py-20">
-        {geoQuestions.map((q) => (
-          <div key={q.question.en}>
-            <h2 className="text-h3 font-bold text-slate-900">{q.question[l] ?? q.question.en}</h2>
-            <p data-answer-block className={`mt-3 text-body text-slate-600 ${isAr ? "leading-[1.9]" : ""}`}>
-              {q.answer[l] ?? q.answer.en}
-            </p>
-          </div>
-        ))}
+      <section className="bg-slate-50 px-4 py-16 md:px-8 md:py-24">
+        <div className="mx-auto max-w-3xl space-y-10">
+          {geoQuestions.map((q) => (
+            <div key={q.question.en} className="rounded-2xl bg-white p-6 shadow-card">
+              <h2 className="text-h3 font-bold text-slate-900">{q.question[l] ?? q.question.en}</h2>
+              <p data-answer-block className={`mt-3 text-body text-slate-600 ${isAr ? "leading-[1.9]" : ""}`}>
+                {q.answer[l] ?? q.answer.en}
+              </p>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* 3.6 Comparison table */}
-      <section className="mx-auto max-w-4xl px-4 py-8 md:px-8">
+      <section className="mx-auto max-w-4xl px-4 py-16 md:px-8 md:py-24">
         <h2 className="text-center text-h2 font-bold text-slate-900">
           {isAr ? "الترجمة المعتمدة مقابل الترجمة العادية" : "Certified vs. Standard Translation"}
         </h2>
-        <div className="mt-8 overflow-x-auto rounded-xl border border-slate-200">
+        <div className="mt-8 overflow-x-auto rounded-xl border border-slate-200 shadow-card">
           <table className="w-full border-collapse text-start text-body">
             <thead>
-              <tr className="bg-slate-50">
-                <th className="p-4 text-start font-semibold text-slate-900">{isAr ? "المعيار" : "Feature"}</th>
-                <th className="p-4 text-start font-semibold text-slate-900">{isAr ? "معتمدة" : "Certified"}</th>
-                <th className="p-4 text-start font-semibold text-slate-900">{isAr ? "عادية" : "Standard"}</th>
+              <tr className="bg-primary-700">
+                <th className="p-4 text-start font-semibold text-white">{isAr ? "المعيار" : "Feature"}</th>
+                <th className="p-4 text-start font-semibold text-white">{isAr ? "معتمدة" : "Certified"}</th>
+                <th className="p-4 text-start font-semibold text-white">{isAr ? "عادية" : "Standard"}</th>
               </tr>
             </thead>
             <tbody>
-              {comparisonTable.map((row) => (
-                <tr key={row.feature.en} className="border-t border-slate-200">
+              {comparisonTable.map((row, i) => (
+                <tr key={row.feature.en} className={i % 2 === 1 ? "bg-slate-50" : "bg-white"}>
                   <td className="p-4 font-medium text-slate-900">{row.feature[l] ?? row.feature.en}</td>
                   <td className="p-4 text-slate-600">{row.certified[l] ?? row.certified.en}</td>
                   <td className="p-4 text-slate-600">{row.standard[l] ?? row.standard.en}</td>
@@ -218,9 +231,9 @@ export default async function AboutPage({
           only) must stay visually and textually separate from other, wider-
           language, non-certified services. Do not merge these two cards or
           move the "60+ languages" homepage claim into this block. */}
-      <section className="mx-auto max-w-5xl px-4 py-16 md:px-8 md:py-20">
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border-2 border-primary-600 bg-primary-50 p-6">
+      <section className="bg-slate-50 px-4 py-16 md:px-8 md:py-24">
+        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+          <div className="rounded-2xl border-2 border-primary-600 bg-white p-6 shadow-card-hover">
             <h3 className="text-h3 font-bold text-primary-900">
               {certifiedVsOtherServices.certified.title[l] ?? certifiedVsOtherServices.certified.title.en}
             </h3>
@@ -228,7 +241,7 @@ export default async function AboutPage({
               {certifiedVsOtherServices.certified.body[l] ?? certifiedVsOtherServices.certified.body.en}
             </p>
           </div>
-          <div className="rounded-2xl border border-slate-200 bg-white p-6">
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
             <h3 className="text-h3 font-bold text-slate-900">
               {certifiedVsOtherServices.other.title[l] ?? certifiedVsOtherServices.other.title.en}
             </h3>
@@ -280,29 +293,30 @@ export default async function AboutPage({
         }))}
       />
 
-      {/* Internal links (§8) */}
-      <section className="mx-auto max-w-3xl px-4 pb-4 text-center md:px-8">
-        <p className="text-body text-slate-600">
-          {isAr ? (
-            <>
-              راجع <Link href="/services" className="font-semibold text-primary-600 hover:text-primary-700">خدمات الترجمة والتعريب لدينا</Link>،
-              أو تواصل مع <Link href="/contact" className="font-semibold text-primary-600 hover:text-primary-700">مكتبنا في دبي</Link>،
-              أو اطّلع على <Link href="/legal-translation" className="font-semibold text-primary-600 hover:text-primary-700">مركز الترجمة القانونية المعتمدة</Link>.
-            </>
-          ) : (
-            <>
-              Explore our <Link href="/services" className="font-semibold text-primary-600 hover:text-primary-700">translation and localization services</Link>,
-              reach our <Link href="/contact" className="font-semibold text-primary-600 hover:text-primary-700">Dubai office</Link>,
-              or visit the <Link href="/legal-translation" className="font-semibold text-primary-600 hover:text-primary-700">certified legal translation hub</Link>.
-            </>
-          )}
-        </p>
-      </section>
+      {/* Internal links (§8) + 3.7 Last updated + 2.6 Credential block */}
+      <section className="bg-slate-50 px-4 py-14 md:px-8 md:py-16">
+        <div className="mx-auto max-w-3xl rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-card">
+          <p className="text-body text-slate-600">
+            {isAr ? (
+              <>
+                راجع <Link href="/services" className="font-semibold text-primary-600 hover:text-primary-700">خدمات الترجمة والتعريب لدينا</Link>،
+                أو تواصل مع <Link href="/contact" className="font-semibold text-primary-600 hover:text-primary-700">مكتبنا في دبي</Link>،
+                أو اطّلع على <Link href="/legal-translation" className="font-semibold text-primary-600 hover:text-primary-700">مركز الترجمة القانونية المعتمدة</Link>.
+              </>
+            ) : (
+              <>
+                Explore our <Link href="/services" className="font-semibold text-primary-600 hover:text-primary-700">translation and localization services</Link>,
+                reach our <Link href="/contact" className="font-semibold text-primary-600 hover:text-primary-700">Dubai office</Link>,
+                or visit the <Link href="/legal-translation" className="font-semibold text-primary-600 hover:text-primary-700">certified legal translation hub</Link>.
+              </>
+            )}
+          </p>
 
-      {/* 3.7 Last updated + 2.6 Credential block */}
-      <section className="mx-auto max-w-3xl px-4 py-12 text-center md:px-8">
-        <p className="text-caption text-slate-500">{lastUpdatedLabel}</p>
-        <CredentialBlock line={credentialLine[l] ?? credentialLine.en!} className="mt-4 text-slate-700" />
+          <div className="mt-6 border-t border-slate-100 pt-6">
+            <CredentialBlock line={credentialLine[l] ?? credentialLine.en!} className="text-slate-700" />
+            <p className="mt-3 text-caption text-slate-400">{lastUpdatedLabel}</p>
+          </div>
+        </div>
       </section>
     </main>
   );
