@@ -206,9 +206,14 @@ export function DocumentCatalog() {
                 <p className="mt-2 flex-1 text-body text-slate-600">
                   {doc.description[locale] ?? doc.description.en}
                 </p>
-                <p className="mt-3 text-h3 font-bold text-primary-600">
-                  {tl("fromPrice", { price: doc.basePrice })}
-                </p>
+                <div className="mt-3 flex flex-wrap items-baseline justify-between gap-1 border-t border-slate-100 pt-3">
+                  <p className="text-h3 font-bold text-primary-600">
+                    {tl("fromPrice", { price: doc.basePrice })}
+                  </p>
+                  <span className="text-caption text-slate-500">
+                    ⚡ {tl("expressTier")}: {tl("aedPrice", { price: Math.round((doc.basePrice * 1.5) / 10) * 10 })} · {tl("expressTurnaround")}
+                  </span>
+                </div>
                 <Link
                   href={`/legal-translation/documents/${doc.slug}`}
                   className="mt-4 inline-flex items-center justify-center rounded-full border border-primary-600 px-4 py-2 text-body font-semibold text-primary-600 transition-colors hover:bg-primary-50"

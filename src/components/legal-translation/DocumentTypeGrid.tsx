@@ -22,9 +22,14 @@ export function DocumentTypeGrid({ documents }: { documents: DocumentType[] }) {
             {doc.name[locale] ?? doc.name.en}
           </h3>
           <p className="mt-1.5 text-body text-slate-600">{doc.description[locale] ?? doc.description.en}</p>
-          <p className="mt-3 text-body font-semibold text-primary-600">
-            {t("fromPrice", { price: doc.basePrice })}
-          </p>
+          <div className="mt-3 flex flex-wrap items-baseline justify-between gap-1 border-t border-slate-100 pt-2">
+            <p className="text-body font-semibold text-primary-600">
+              {t("fromPrice", { price: doc.basePrice })}
+            </p>
+            <span className="text-caption text-slate-500">
+              ⚡ {t("expressTier")}: {t("aedPrice", { price: Math.round((doc.basePrice * 1.5) / 10) * 10 })}
+            </span>
+          </div>
         </Link>
       ))}
     </div>

@@ -56,6 +56,9 @@ export default async function DocumentDetailPage({
   const docName = doc.name[l] ?? doc.name.en ?? "";
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://jusortrans.com";
+  const standardPrice = doc.basePrice;
+  const expressPrice = Math.round((standardPrice * 1.5) / 10) * 10;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -66,8 +69,16 @@ export default async function DocumentDetailPage({
         offers: [
           {
             "@type": "Offer",
-            price: doc.basePrice,
-            priceCurrency: "USD",
+            name: "Standard",
+            price: standardPrice,
+            priceCurrency: "AED",
+            availability: "https://schema.org/InStock",
+          },
+          {
+            "@type": "Offer",
+            name: "Express",
+            price: expressPrice,
+            priceCurrency: "AED",
             availability: "https://schema.org/InStock",
           },
         ],
