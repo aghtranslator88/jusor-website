@@ -132,12 +132,16 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-full p-2 text-slate-700 lg:hidden"
+          className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50/80 p-2 text-slate-800 transition-colors hover:bg-slate-100 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500/20 lg:hidden"
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((v) => !v)}
         >
-          {mobileOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+          {mobileOpen ? (
+            <X className="h-6 w-6 text-slate-800" strokeWidth={2.5} />
+          ) : (
+            <Menu className="h-6 w-6 text-slate-800" strokeWidth={2.5} />
+          )}
         </button>
       </div>
 

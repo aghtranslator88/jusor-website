@@ -6,6 +6,8 @@ import { services } from "@/content/services";
 import { interpretationModes } from "@/content/interpretation";
 import { equipmentItems } from "@/content/equipment";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://jusortrans.com";
   const locales = routing.locales;

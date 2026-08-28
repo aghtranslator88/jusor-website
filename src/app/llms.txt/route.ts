@@ -4,6 +4,7 @@ import { authorities, languagePairs } from "@/content/legal-translation";
 import { services } from "@/content/services";
 import { interpretationModes } from "@/content/interpretation";
 
+export const dynamic = "force-static";
 export const revalidate = 3600;
 
 // Note: this site has no backend API yet — all content below is served as
