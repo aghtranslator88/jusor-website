@@ -1,5 +1,3 @@
-"use client";
-
 import { useTranslations } from "next-intl";
 import { MessageCircle } from "lucide-react";
 import { primaryOffice } from "@/content/company";
